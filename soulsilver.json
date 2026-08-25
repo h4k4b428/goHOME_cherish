@@ -1,0 +1,2304 @@
+{
+  "gameId": "soulsilver",
+  "nameJa": "ソウルシルバー",
+  "regionalDexName": "ジョウト図鑑",
+  "regionalDex": [
+    {
+      "localNo": 1,
+      "nationalNo": 152,
+      "nameJa": "チコリータ"
+    },
+    {
+      "localNo": 2,
+      "nationalNo": 153,
+      "nameJa": "ベイリーフ"
+    },
+    {
+      "localNo": 3,
+      "nationalNo": 154,
+      "nameJa": "メガニウム"
+    },
+    {
+      "localNo": 4,
+      "nationalNo": 155,
+      "nameJa": "ヒノアラシ"
+    },
+    {
+      "localNo": 5,
+      "nationalNo": 156,
+      "nameJa": "マグマラシ"
+    },
+    {
+      "localNo": 6,
+      "nationalNo": 157,
+      "nameJa": "バクフーン"
+    },
+    {
+      "localNo": 7,
+      "nationalNo": 158,
+      "nameJa": "ワニノコ"
+    },
+    {
+      "localNo": 8,
+      "nationalNo": 159,
+      "nameJa": "アリゲイツ"
+    },
+    {
+      "localNo": 9,
+      "nationalNo": 160,
+      "nameJa": "オーダイル"
+    },
+    {
+      "localNo": 10,
+      "nationalNo": 16,
+      "nameJa": "ポッポ"
+    },
+    {
+      "localNo": 11,
+      "nationalNo": 17,
+      "nameJa": "ピジョン"
+    },
+    {
+      "localNo": 12,
+      "nationalNo": 18,
+      "nameJa": "ピジョット"
+    },
+    {
+      "localNo": 13,
+      "nationalNo": 21,
+      "nameJa": "オニスズメ"
+    },
+    {
+      "localNo": 14,
+      "nationalNo": 22,
+      "nameJa": "オニドリル"
+    },
+    {
+      "localNo": 15,
+      "nationalNo": 163,
+      "nameJa": "ホーホー"
+    },
+    {
+      "localNo": 16,
+      "nationalNo": 164,
+      "nameJa": "ヨルノズク"
+    },
+    {
+      "localNo": 17,
+      "nationalNo": 19,
+      "nameJa": "コラッタ"
+    },
+    {
+      "localNo": 18,
+      "nationalNo": 20,
+      "nameJa": "ラッタ"
+    },
+    {
+      "localNo": 19,
+      "nationalNo": 161,
+      "nameJa": "オタチ"
+    },
+    {
+      "localNo": 20,
+      "nationalNo": 162,
+      "nameJa": "オオタチ"
+    },
+    {
+      "localNo": 21,
+      "nationalNo": 172,
+      "nameJa": "ピチュー"
+    },
+    {
+      "localNo": 22,
+      "nationalNo": 25,
+      "nameJa": "ピカチュウ"
+    },
+    {
+      "localNo": 23,
+      "nationalNo": 26,
+      "nameJa": "ライチュウ"
+    },
+    {
+      "localNo": 24,
+      "nationalNo": 10,
+      "nameJa": "キャタピー"
+    },
+    {
+      "localNo": 25,
+      "nationalNo": 11,
+      "nameJa": "トランセル"
+    },
+    {
+      "localNo": 26,
+      "nationalNo": 12,
+      "nameJa": "バタフリー"
+    },
+    {
+      "localNo": 27,
+      "nationalNo": 13,
+      "nameJa": "ビードル"
+    },
+    {
+      "localNo": 28,
+      "nationalNo": 14,
+      "nameJa": "コクーン"
+    },
+    {
+      "localNo": 29,
+      "nationalNo": 15,
+      "nameJa": "スピアー"
+    },
+    {
+      "localNo": 30,
+      "nationalNo": 165,
+      "nameJa": "レディバ"
+    },
+    {
+      "localNo": 31,
+      "nationalNo": 166,
+      "nameJa": "レディアン"
+    },
+    {
+      "localNo": 32,
+      "nationalNo": 167,
+      "nameJa": "イトマル"
+    },
+    {
+      "localNo": 33,
+      "nationalNo": 168,
+      "nameJa": "アリアドス"
+    },
+    {
+      "localNo": 34,
+      "nationalNo": 74,
+      "nameJa": "イシツブテ"
+    },
+    {
+      "localNo": 35,
+      "nationalNo": 75,
+      "nameJa": "ゴローン"
+    },
+    {
+      "localNo": 36,
+      "nationalNo": 76,
+      "nameJa": "ゴローニャ"
+    },
+    {
+      "localNo": 37,
+      "nationalNo": 41,
+      "nameJa": "ズバット"
+    },
+    {
+      "localNo": 38,
+      "nationalNo": 42,
+      "nameJa": "ゴルバット"
+    },
+    {
+      "localNo": 39,
+      "nationalNo": 169,
+      "nameJa": "クロバット"
+    },
+    {
+      "localNo": 40,
+      "nationalNo": 173,
+      "nameJa": "ピィ"
+    },
+    {
+      "localNo": 41,
+      "nationalNo": 35,
+      "nameJa": "ピッピ"
+    },
+    {
+      "localNo": 42,
+      "nationalNo": 36,
+      "nameJa": "ピクシー"
+    },
+    {
+      "localNo": 43,
+      "nationalNo": 174,
+      "nameJa": "ププリン"
+    },
+    {
+      "localNo": 44,
+      "nationalNo": 39,
+      "nameJa": "プリン"
+    },
+    {
+      "localNo": 45,
+      "nationalNo": 40,
+      "nameJa": "プクリン"
+    },
+    {
+      "localNo": 46,
+      "nationalNo": 175,
+      "nameJa": "トゲピー"
+    },
+    {
+      "localNo": 47,
+      "nationalNo": 176,
+      "nameJa": "トゲチック"
+    },
+    {
+      "localNo": 48,
+      "nationalNo": 27,
+      "nameJa": "サンド"
+    },
+    {
+      "localNo": 49,
+      "nationalNo": 28,
+      "nameJa": "サンドパン"
+    },
+    {
+      "localNo": 50,
+      "nationalNo": 23,
+      "nameJa": "アーボ"
+    },
+    {
+      "localNo": 51,
+      "nationalNo": 24,
+      "nameJa": "アーボック"
+    },
+    {
+      "localNo": 52,
+      "nationalNo": 206,
+      "nameJa": "ノコッチ"
+    },
+    {
+      "localNo": 53,
+      "nationalNo": 179,
+      "nameJa": "メリープ"
+    },
+    {
+      "localNo": 54,
+      "nationalNo": 180,
+      "nameJa": "モココ"
+    },
+    {
+      "localNo": 55,
+      "nationalNo": 181,
+      "nameJa": "デンリュウ"
+    },
+    {
+      "localNo": 56,
+      "nationalNo": 194,
+      "nameJa": "ウパー"
+    },
+    {
+      "localNo": 57,
+      "nationalNo": 195,
+      "nameJa": "ヌオー"
+    },
+    {
+      "localNo": 58,
+      "nationalNo": 92,
+      "nameJa": "ゴース"
+    },
+    {
+      "localNo": 59,
+      "nationalNo": 93,
+      "nameJa": "ゴースト"
+    },
+    {
+      "localNo": 60,
+      "nationalNo": 94,
+      "nameJa": "ゲンガー"
+    },
+    {
+      "localNo": 61,
+      "nationalNo": 201,
+      "nameJa": "アンノーン"
+    },
+    {
+      "localNo": 62,
+      "nationalNo": 95,
+      "nameJa": "イワーク"
+    },
+    {
+      "localNo": 63,
+      "nationalNo": 208,
+      "nameJa": "ハガネール"
+    },
+    {
+      "localNo": 64,
+      "nationalNo": 69,
+      "nameJa": "マダツボミ"
+    },
+    {
+      "localNo": 65,
+      "nationalNo": 70,
+      "nameJa": "ウツドン"
+    },
+    {
+      "localNo": 66,
+      "nationalNo": 71,
+      "nameJa": "ウツボット"
+    },
+    {
+      "localNo": 67,
+      "nationalNo": 187,
+      "nameJa": "ハネッコ"
+    },
+    {
+      "localNo": 68,
+      "nationalNo": 188,
+      "nameJa": "ポポッコ"
+    },
+    {
+      "localNo": 69,
+      "nationalNo": 189,
+      "nameJa": "ワタッコ"
+    },
+    {
+      "localNo": 70,
+      "nationalNo": 46,
+      "nameJa": "パラス"
+    },
+    {
+      "localNo": 71,
+      "nationalNo": 47,
+      "nameJa": "パラセクト"
+    },
+    {
+      "localNo": 72,
+      "nationalNo": 60,
+      "nameJa": "ニョロモ"
+    },
+    {
+      "localNo": 73,
+      "nationalNo": 61,
+      "nameJa": "ニョロゾ"
+    },
+    {
+      "localNo": 74,
+      "nationalNo": 62,
+      "nameJa": "ニョロボン"
+    },
+    {
+      "localNo": 75,
+      "nationalNo": 186,
+      "nameJa": "ニョロトノ"
+    },
+    {
+      "localNo": 76,
+      "nationalNo": 129,
+      "nameJa": "コイキング"
+    },
+    {
+      "localNo": 77,
+      "nationalNo": 130,
+      "nameJa": "ギャラドス"
+    },
+    {
+      "localNo": 78,
+      "nationalNo": 118,
+      "nameJa": "トサキント"
+    },
+    {
+      "localNo": 79,
+      "nationalNo": 119,
+      "nameJa": "アズマオウ"
+    },
+    {
+      "localNo": 80,
+      "nationalNo": 79,
+      "nameJa": "ヤドン"
+    },
+    {
+      "localNo": 81,
+      "nationalNo": 80,
+      "nameJa": "ヤドラン"
+    },
+    {
+      "localNo": 82,
+      "nationalNo": 199,
+      "nameJa": "ヤドキング"
+    },
+    {
+      "localNo": 83,
+      "nationalNo": 43,
+      "nameJa": "ナゾノクサ"
+    },
+    {
+      "localNo": 84,
+      "nationalNo": 44,
+      "nameJa": "クサイハナ"
+    },
+    {
+      "localNo": 85,
+      "nationalNo": 45,
+      "nameJa": "ラフレシア"
+    },
+    {
+      "localNo": 86,
+      "nationalNo": 182,
+      "nameJa": "キレイハナ"
+    },
+    {
+      "localNo": 87,
+      "nationalNo": 96,
+      "nameJa": "スリープ"
+    },
+    {
+      "localNo": 88,
+      "nationalNo": 97,
+      "nameJa": "スリーパー"
+    },
+    {
+      "localNo": 89,
+      "nationalNo": 63,
+      "nameJa": "ケーシィ"
+    },
+    {
+      "localNo": 90,
+      "nationalNo": 64,
+      "nameJa": "ユンゲラー"
+    },
+    {
+      "localNo": 91,
+      "nationalNo": 65,
+      "nameJa": "フーディン"
+    },
+    {
+      "localNo": 92,
+      "nationalNo": 132,
+      "nameJa": "メタモン"
+    },
+    {
+      "localNo": 93,
+      "nationalNo": 204,
+      "nameJa": "クヌギダマ"
+    },
+    {
+      "localNo": 94,
+      "nationalNo": 205,
+      "nameJa": "フォレトス"
+    },
+    {
+      "localNo": 95,
+      "nationalNo": 29,
+      "nameJa": "ニドラン♀"
+    },
+    {
+      "localNo": 96,
+      "nationalNo": 30,
+      "nameJa": "ニドリーナ"
+    },
+    {
+      "localNo": 97,
+      "nationalNo": 31,
+      "nameJa": "ニドクイン"
+    },
+    {
+      "localNo": 98,
+      "nationalNo": 32,
+      "nameJa": "ニドラン♂"
+    },
+    {
+      "localNo": 99,
+      "nationalNo": 33,
+      "nameJa": "ニドリーノ"
+    },
+    {
+      "localNo": 100,
+      "nationalNo": 34,
+      "nameJa": "ニドキング"
+    },
+    {
+      "localNo": 101,
+      "nationalNo": 193,
+      "nameJa": "ヤンヤンマ"
+    },
+    {
+      "localNo": 102,
+      "nationalNo": 469,
+      "nameJa": "メガヤンマ"
+    },
+    {
+      "localNo": 103,
+      "nationalNo": 191,
+      "nameJa": "ヒマナッツ"
+    },
+    {
+      "localNo": 104,
+      "nationalNo": 192,
+      "nameJa": "キマワリ"
+    },
+    {
+      "localNo": 105,
+      "nationalNo": 102,
+      "nameJa": "タマタマ"
+    },
+    {
+      "localNo": 106,
+      "nationalNo": 103,
+      "nameJa": "ナッシー"
+    },
+    {
+      "localNo": 107,
+      "nationalNo": 185,
+      "nameJa": "ウソッキー"
+    },
+    {
+      "localNo": 108,
+      "nationalNo": 202,
+      "nameJa": "ソーナンス"
+    },
+    {
+      "localNo": 109,
+      "nationalNo": 48,
+      "nameJa": "コンパン"
+    },
+    {
+      "localNo": 110,
+      "nationalNo": 49,
+      "nameJa": "モルフォン"
+    },
+    {
+      "localNo": 111,
+      "nationalNo": 123,
+      "nameJa": "ストライク"
+    },
+    {
+      "localNo": 112,
+      "nationalNo": 212,
+      "nameJa": "ハッサム"
+    },
+    {
+      "localNo": 113,
+      "nationalNo": 127,
+      "nameJa": "カイロス"
+    },
+    {
+      "localNo": 114,
+      "nationalNo": 214,
+      "nameJa": "ヘラクロス"
+    },
+    {
+      "localNo": 115,
+      "nationalNo": 109,
+      "nameJa": "ドガース"
+    },
+    {
+      "localNo": 116,
+      "nationalNo": 110,
+      "nameJa": "マタドガス"
+    },
+    {
+      "localNo": 117,
+      "nationalNo": 88,
+      "nameJa": "ベトベター"
+    },
+    {
+      "localNo": 118,
+      "nationalNo": 89,
+      "nameJa": "ベトベトン"
+    },
+    {
+      "localNo": 119,
+      "nationalNo": 81,
+      "nameJa": "コイル"
+    },
+    {
+      "localNo": 120,
+      "nationalNo": 82,
+      "nameJa": "レアコイル"
+    },
+    {
+      "localNo": 121,
+      "nationalNo": 100,
+      "nameJa": "ビリリダマ"
+    },
+    {
+      "localNo": 122,
+      "nationalNo": 101,
+      "nameJa": "マルマイン"
+    },
+    {
+      "localNo": 123,
+      "nationalNo": 190,
+      "nameJa": "エイパム"
+    },
+    {
+      "localNo": 124,
+      "nationalNo": 424,
+      "nameJa": "エテボース"
+    },
+    {
+      "localNo": 125,
+      "nationalNo": 209,
+      "nameJa": "ブルー"
+    },
+    {
+      "localNo": 126,
+      "nationalNo": 210,
+      "nameJa": "グランブル"
+    },
+    {
+      "localNo": 127,
+      "nationalNo": 37,
+      "nameJa": "ロコン"
+    },
+    {
+      "localNo": 128,
+      "nationalNo": 38,
+      "nameJa": "キュウコン"
+    },
+    {
+      "localNo": 129,
+      "nationalNo": 58,
+      "nameJa": "ガーディ"
+    },
+    {
+      "localNo": 130,
+      "nationalNo": 59,
+      "nameJa": "ウインディ"
+    },
+    {
+      "localNo": 131,
+      "nationalNo": 234,
+      "nameJa": "オドシシ"
+    },
+    {
+      "localNo": 132,
+      "nationalNo": 183,
+      "nameJa": "マリル"
+    },
+    {
+      "localNo": 133,
+      "nationalNo": 184,
+      "nameJa": "マリルリ"
+    },
+    {
+      "localNo": 134,
+      "nationalNo": 50,
+      "nameJa": "ディグダ"
+    },
+    {
+      "localNo": 135,
+      "nationalNo": 51,
+      "nameJa": "ダグトリオ"
+    },
+    {
+      "localNo": 136,
+      "nationalNo": 56,
+      "nameJa": "マンキー"
+    },
+    {
+      "localNo": 137,
+      "nationalNo": 57,
+      "nameJa": "オコリザル"
+    },
+    {
+      "localNo": 138,
+      "nationalNo": 52,
+      "nameJa": "ニャース"
+    },
+    {
+      "localNo": 139,
+      "nationalNo": 53,
+      "nameJa": "ペルシアン"
+    },
+    {
+      "localNo": 140,
+      "nationalNo": 54,
+      "nameJa": "コダック"
+    },
+    {
+      "localNo": 141,
+      "nationalNo": 55,
+      "nameJa": "ゴルダック"
+    },
+    {
+      "localNo": 142,
+      "nationalNo": 66,
+      "nameJa": "ワンリキー"
+    },
+    {
+      "localNo": 143,
+      "nationalNo": 67,
+      "nameJa": "ゴーリキー"
+    },
+    {
+      "localNo": 144,
+      "nationalNo": 68,
+      "nameJa": "カイリキー"
+    },
+    {
+      "localNo": 145,
+      "nationalNo": 236,
+      "nameJa": "バルキー"
+    },
+    {
+      "localNo": 146,
+      "nationalNo": 106,
+      "nameJa": "サワムラー"
+    },
+    {
+      "localNo": 147,
+      "nationalNo": 107,
+      "nameJa": "エビワラー"
+    },
+    {
+      "localNo": 148,
+      "nationalNo": 237,
+      "nameJa": "カポエラー"
+    },
+    {
+      "localNo": 149,
+      "nationalNo": 203,
+      "nameJa": "キリンリキ"
+    },
+    {
+      "localNo": 150,
+      "nationalNo": 128,
+      "nameJa": "ケンタロス"
+    },
+    {
+      "localNo": 151,
+      "nationalNo": 241,
+      "nameJa": "ミルタンク"
+    },
+    {
+      "localNo": 152,
+      "nationalNo": 240,
+      "nameJa": "ブビィ"
+    },
+    {
+      "localNo": 153,
+      "nationalNo": 126,
+      "nameJa": "ブーバー"
+    },
+    {
+      "localNo": 154,
+      "nationalNo": 238,
+      "nameJa": "ムチュール"
+    },
+    {
+      "localNo": 155,
+      "nationalNo": 124,
+      "nameJa": "ルージュラ"
+    },
+    {
+      "localNo": 156,
+      "nationalNo": 239,
+      "nameJa": "エレキッド"
+    },
+    {
+      "localNo": 157,
+      "nationalNo": 125,
+      "nameJa": "エレブー"
+    },
+    {
+      "localNo": 158,
+      "nationalNo": 122,
+      "nameJa": "バリヤード"
+    },
+    {
+      "localNo": 159,
+      "nationalNo": 235,
+      "nameJa": "ドーブル"
+    },
+    {
+      "localNo": 160,
+      "nationalNo": 83,
+      "nameJa": "カモネギ"
+    },
+    {
+      "localNo": 161,
+      "nationalNo": 177,
+      "nameJa": "ネイティ"
+    },
+    {
+      "localNo": 162,
+      "nationalNo": 178,
+      "nameJa": "ネイティオ"
+    },
+    {
+      "localNo": 163,
+      "nationalNo": 211,
+      "nameJa": "ハリーセン"
+    },
+    {
+      "localNo": 164,
+      "nationalNo": 72,
+      "nameJa": "メノクラゲ"
+    },
+    {
+      "localNo": 165,
+      "nationalNo": 73,
+      "nameJa": "ドククラゲ"
+    },
+    {
+      "localNo": 166,
+      "nationalNo": 98,
+      "nameJa": "クラブ"
+    },
+    {
+      "localNo": 167,
+      "nationalNo": 99,
+      "nameJa": "キングラー"
+    },
+    {
+      "localNo": 168,
+      "nationalNo": 213,
+      "nameJa": "ツボツボ"
+    },
+    {
+      "localNo": 169,
+      "nationalNo": 120,
+      "nameJa": "ヒトデマン"
+    },
+    {
+      "localNo": 170,
+      "nationalNo": 121,
+      "nameJa": "スターミー"
+    },
+    {
+      "localNo": 171,
+      "nationalNo": 90,
+      "nameJa": "シェルダー"
+    },
+    {
+      "localNo": 172,
+      "nationalNo": 91,
+      "nameJa": "パルシェン"
+    },
+    {
+      "localNo": 173,
+      "nationalNo": 222,
+      "nameJa": "サニーゴ"
+    },
+    {
+      "localNo": 174,
+      "nationalNo": 223,
+      "nameJa": "テッポウオ"
+    },
+    {
+      "localNo": 175,
+      "nationalNo": 224,
+      "nameJa": "オクタン"
+    },
+    {
+      "localNo": 176,
+      "nationalNo": 170,
+      "nameJa": "チョンチー"
+    },
+    {
+      "localNo": 177,
+      "nationalNo": 171,
+      "nameJa": "ランターン"
+    },
+    {
+      "localNo": 178,
+      "nationalNo": 86,
+      "nameJa": "パウワウ"
+    },
+    {
+      "localNo": 179,
+      "nationalNo": 87,
+      "nameJa": "ジュゴン"
+    },
+    {
+      "localNo": 180,
+      "nationalNo": 108,
+      "nameJa": "ベロリンガ"
+    },
+    {
+      "localNo": 181,
+      "nationalNo": 463,
+      "nameJa": "ベロベルト"
+    },
+    {
+      "localNo": 182,
+      "nationalNo": 114,
+      "nameJa": "モンジャラ"
+    },
+    {
+      "localNo": 183,
+      "nationalNo": 465,
+      "nameJa": "モジャンボ"
+    },
+    {
+      "localNo": 184,
+      "nationalNo": 133,
+      "nameJa": "イーブイ"
+    },
+    {
+      "localNo": 185,
+      "nationalNo": 134,
+      "nameJa": "シャワーズ"
+    },
+    {
+      "localNo": 186,
+      "nationalNo": 135,
+      "nameJa": "サンダース"
+    },
+    {
+      "localNo": 187,
+      "nationalNo": 136,
+      "nameJa": "ブースター"
+    },
+    {
+      "localNo": 188,
+      "nationalNo": 196,
+      "nameJa": "エーフィ"
+    },
+    {
+      "localNo": 189,
+      "nationalNo": 197,
+      "nameJa": "ブラッキー"
+    },
+    {
+      "localNo": 190,
+      "nationalNo": 116,
+      "nameJa": "タッツー"
+    },
+    {
+      "localNo": 191,
+      "nationalNo": 117,
+      "nameJa": "シードラ"
+    },
+    {
+      "localNo": 192,
+      "nationalNo": 230,
+      "nameJa": "キングドラ"
+    },
+    {
+      "localNo": 193,
+      "nationalNo": 207,
+      "nameJa": "グライガー"
+    },
+    {
+      "localNo": 194,
+      "nationalNo": 225,
+      "nameJa": "デリバード"
+    },
+    {
+      "localNo": 195,
+      "nationalNo": 220,
+      "nameJa": "ウリムー"
+    },
+    {
+      "localNo": 196,
+      "nationalNo": 221,
+      "nameJa": "イノムー"
+    },
+    {
+      "localNo": 197,
+      "nationalNo": 473,
+      "nameJa": "マンムー"
+    },
+    {
+      "localNo": 198,
+      "nationalNo": 216,
+      "nameJa": "ヒメグマ"
+    },
+    {
+      "localNo": 199,
+      "nationalNo": 217,
+      "nameJa": "リングマ"
+    },
+    {
+      "localNo": 200,
+      "nationalNo": 231,
+      "nameJa": "ゴマゾウ"
+    },
+    {
+      "localNo": 201,
+      "nationalNo": 232,
+      "nameJa": "ドンファン"
+    },
+    {
+      "localNo": 202,
+      "nationalNo": 226,
+      "nameJa": "マンタイン"
+    },
+    {
+      "localNo": 203,
+      "nationalNo": 227,
+      "nameJa": "エアームド"
+    },
+    {
+      "localNo": 204,
+      "nationalNo": 84,
+      "nameJa": "ドードー"
+    },
+    {
+      "localNo": 205,
+      "nationalNo": 85,
+      "nameJa": "ドードリオ"
+    },
+    {
+      "localNo": 206,
+      "nationalNo": 77,
+      "nameJa": "ポニータ"
+    },
+    {
+      "localNo": 207,
+      "nationalNo": 78,
+      "nameJa": "ギャロップ"
+    },
+    {
+      "localNo": 208,
+      "nationalNo": 104,
+      "nameJa": "カラカラ"
+    },
+    {
+      "localNo": 209,
+      "nationalNo": 105,
+      "nameJa": "ガラガラ"
+    },
+    {
+      "localNo": 210,
+      "nationalNo": 115,
+      "nameJa": "ガルーラ"
+    },
+    {
+      "localNo": 211,
+      "nationalNo": 111,
+      "nameJa": "サイホーン"
+    },
+    {
+      "localNo": 212,
+      "nationalNo": 112,
+      "nameJa": "サイドン"
+    },
+    {
+      "localNo": 213,
+      "nationalNo": 198,
+      "nameJa": "ヤミカラス"
+    },
+    {
+      "localNo": 214,
+      "nationalNo": 228,
+      "nameJa": "デルビル"
+    },
+    {
+      "localNo": 215,
+      "nationalNo": 229,
+      "nameJa": "ヘルガー"
+    },
+    {
+      "localNo": 216,
+      "nationalNo": 218,
+      "nameJa": "マグマッグ"
+    },
+    {
+      "localNo": 217,
+      "nationalNo": 219,
+      "nameJa": "マグカルゴ"
+    },
+    {
+      "localNo": 218,
+      "nationalNo": 215,
+      "nameJa": "ニューラ"
+    },
+    {
+      "localNo": 219,
+      "nationalNo": 200,
+      "nameJa": "ムウマ"
+    },
+    {
+      "localNo": 220,
+      "nationalNo": 137,
+      "nameJa": "ポリゴン"
+    },
+    {
+      "localNo": 221,
+      "nationalNo": 233,
+      "nameJa": "ポリゴン2"
+    },
+    {
+      "localNo": 222,
+      "nationalNo": 113,
+      "nameJa": "ラッキー"
+    },
+    {
+      "localNo": 223,
+      "nationalNo": 242,
+      "nameJa": "ハピナス"
+    },
+    {
+      "localNo": 224,
+      "nationalNo": 131,
+      "nameJa": "ラプラス"
+    },
+    {
+      "localNo": 225,
+      "nationalNo": 138,
+      "nameJa": "オムナイト"
+    },
+    {
+      "localNo": 226,
+      "nationalNo": 139,
+      "nameJa": "オムスター"
+    },
+    {
+      "localNo": 227,
+      "nationalNo": 140,
+      "nameJa": "カブト"
+    },
+    {
+      "localNo": 228,
+      "nationalNo": 141,
+      "nameJa": "カブトプス"
+    },
+    {
+      "localNo": 229,
+      "nationalNo": 142,
+      "nameJa": "プテラ"
+    },
+    {
+      "localNo": 230,
+      "nationalNo": 143,
+      "nameJa": "カビゴン"
+    },
+    {
+      "localNo": 231,
+      "nationalNo": 1,
+      "nameJa": "フシギダネ"
+    },
+    {
+      "localNo": 232,
+      "nationalNo": 2,
+      "nameJa": "フシギソウ"
+    },
+    {
+      "localNo": 233,
+      "nationalNo": 3,
+      "nameJa": "フシギバナ"
+    },
+    {
+      "localNo": 234,
+      "nationalNo": 4,
+      "nameJa": "ヒトカゲ"
+    },
+    {
+      "localNo": 235,
+      "nationalNo": 5,
+      "nameJa": "リザード"
+    },
+    {
+      "localNo": 236,
+      "nationalNo": 6,
+      "nameJa": "リザードン"
+    },
+    {
+      "localNo": 237,
+      "nationalNo": 7,
+      "nameJa": "ゼニガメ"
+    },
+    {
+      "localNo": 238,
+      "nationalNo": 8,
+      "nameJa": "カメール"
+    },
+    {
+      "localNo": 239,
+      "nationalNo": 9,
+      "nameJa": "カメックス"
+    },
+    {
+      "localNo": 240,
+      "nationalNo": 144,
+      "nameJa": "フリーザー"
+    },
+    {
+      "localNo": 241,
+      "nationalNo": 145,
+      "nameJa": "サンダー"
+    },
+    {
+      "localNo": 242,
+      "nationalNo": 146,
+      "nameJa": "ファイヤー"
+    },
+    {
+      "localNo": 243,
+      "nationalNo": 243,
+      "nameJa": "ライコウ"
+    },
+    {
+      "localNo": 244,
+      "nationalNo": 244,
+      "nameJa": "エンテイ"
+    },
+    {
+      "localNo": 245,
+      "nationalNo": 245,
+      "nameJa": "スイクン"
+    },
+    {
+      "localNo": 246,
+      "nationalNo": 147,
+      "nameJa": "ミニリュウ"
+    },
+    {
+      "localNo": 247,
+      "nationalNo": 148,
+      "nameJa": "ハクリュー"
+    },
+    {
+      "localNo": 248,
+      "nationalNo": 149,
+      "nameJa": "カイリュー"
+    },
+    {
+      "localNo": 249,
+      "nationalNo": 246,
+      "nameJa": "ヨーギラス"
+    },
+    {
+      "localNo": 250,
+      "nationalNo": 247,
+      "nameJa": "サナギラス"
+    },
+    {
+      "localNo": 251,
+      "nationalNo": 248,
+      "nameJa": "バンギラス"
+    },
+    {
+      "localNo": 252,
+      "nationalNo": 249,
+      "nameJa": "ルギア"
+    },
+    {
+      "localNo": 253,
+      "nationalNo": 250,
+      "nameJa": "ホウオウ"
+    },
+    {
+      "localNo": 254,
+      "nationalNo": 150,
+      "nameJa": "ミュウツー"
+    },
+    {
+      "localNo": 255,
+      "nationalNo": 151,
+      "nameJa": "ミュウ"
+    },
+    {
+      "localNo": 256,
+      "nationalNo": 251,
+      "nameJa": "セレビィ"
+    }
+  ],
+  "nationalOnly": [
+    {
+      "nationalNo": 252,
+      "nameJa": "キモリ"
+    },
+    {
+      "nationalNo": 253,
+      "nameJa": "ジュプトル"
+    },
+    {
+      "nationalNo": 254,
+      "nameJa": "ジュカイン"
+    },
+    {
+      "nationalNo": 255,
+      "nameJa": "アチャモ"
+    },
+    {
+      "nationalNo": 256,
+      "nameJa": "ワカシャモ"
+    },
+    {
+      "nationalNo": 257,
+      "nameJa": "バシャーモ"
+    },
+    {
+      "nationalNo": 258,
+      "nameJa": "ミズゴロウ"
+    },
+    {
+      "nationalNo": 259,
+      "nameJa": "ヌマクロー"
+    },
+    {
+      "nationalNo": 260,
+      "nameJa": "ラグラージ"
+    },
+    {
+      "nationalNo": 261,
+      "nameJa": "ポチエナ"
+    },
+    {
+      "nationalNo": 262,
+      "nameJa": "グラエナ"
+    },
+    {
+      "nationalNo": 263,
+      "nameJa": "ジグザグマ"
+    },
+    {
+      "nationalNo": 264,
+      "nameJa": "マッスグマ"
+    },
+    {
+      "nationalNo": 265,
+      "nameJa": "ケムッソ"
+    },
+    {
+      "nationalNo": 266,
+      "nameJa": "カラサリス"
+    },
+    {
+      "nationalNo": 267,
+      "nameJa": "アゲハント"
+    },
+    {
+      "nationalNo": 268,
+      "nameJa": "マユルド"
+    },
+    {
+      "nationalNo": 269,
+      "nameJa": "ドクケイル"
+    },
+    {
+      "nationalNo": 270,
+      "nameJa": "ハスボー"
+    },
+    {
+      "nationalNo": 271,
+      "nameJa": "ハスブレロ"
+    },
+    {
+      "nationalNo": 272,
+      "nameJa": "ルンパッパ"
+    },
+    {
+      "nationalNo": 273,
+      "nameJa": "タネボー"
+    },
+    {
+      "nationalNo": 274,
+      "nameJa": "コノハナ"
+    },
+    {
+      "nationalNo": 275,
+      "nameJa": "ダーテング"
+    },
+    {
+      "nationalNo": 276,
+      "nameJa": "スバメ"
+    },
+    {
+      "nationalNo": 277,
+      "nameJa": "オオスバメ"
+    },
+    {
+      "nationalNo": 278,
+      "nameJa": "キャモメ"
+    },
+    {
+      "nationalNo": 279,
+      "nameJa": "ペリッパー"
+    },
+    {
+      "nationalNo": 280,
+      "nameJa": "ラルトス"
+    },
+    {
+      "nationalNo": 281,
+      "nameJa": "キルリア"
+    },
+    {
+      "nationalNo": 282,
+      "nameJa": "サーナイト"
+    },
+    {
+      "nationalNo": 283,
+      "nameJa": "アメタマ"
+    },
+    {
+      "nationalNo": 284,
+      "nameJa": "アメモース"
+    },
+    {
+      "nationalNo": 285,
+      "nameJa": "キノココ"
+    },
+    {
+      "nationalNo": 286,
+      "nameJa": "キノガッサ"
+    },
+    {
+      "nationalNo": 287,
+      "nameJa": "ナマケロ"
+    },
+    {
+      "nationalNo": 288,
+      "nameJa": "ヤルキモノ"
+    },
+    {
+      "nationalNo": 289,
+      "nameJa": "ケッキング"
+    },
+    {
+      "nationalNo": 290,
+      "nameJa": "ツチニン"
+    },
+    {
+      "nationalNo": 291,
+      "nameJa": "テッカニン"
+    },
+    {
+      "nationalNo": 292,
+      "nameJa": "ヌケニン"
+    },
+    {
+      "nationalNo": 293,
+      "nameJa": "ゴニョニョ"
+    },
+    {
+      "nationalNo": 294,
+      "nameJa": "ドゴーム"
+    },
+    {
+      "nationalNo": 295,
+      "nameJa": "バクオング"
+    },
+    {
+      "nationalNo": 296,
+      "nameJa": "マクノシタ"
+    },
+    {
+      "nationalNo": 297,
+      "nameJa": "ハリテヤマ"
+    },
+    {
+      "nationalNo": 298,
+      "nameJa": "ルリリ"
+    },
+    {
+      "nationalNo": 299,
+      "nameJa": "ノズパス"
+    },
+    {
+      "nationalNo": 300,
+      "nameJa": "エネコ"
+    },
+    {
+      "nationalNo": 301,
+      "nameJa": "エネコロロ"
+    },
+    {
+      "nationalNo": 302,
+      "nameJa": "ヤミラミ"
+    },
+    {
+      "nationalNo": 303,
+      "nameJa": "クチート"
+    },
+    {
+      "nationalNo": 304,
+      "nameJa": "ココドラ"
+    },
+    {
+      "nationalNo": 305,
+      "nameJa": "コドラ"
+    },
+    {
+      "nationalNo": 306,
+      "nameJa": "ボスゴドラ"
+    },
+    {
+      "nationalNo": 307,
+      "nameJa": "アサナン"
+    },
+    {
+      "nationalNo": 308,
+      "nameJa": "チャーレム"
+    },
+    {
+      "nationalNo": 309,
+      "nameJa": "ラクライ"
+    },
+    {
+      "nationalNo": 310,
+      "nameJa": "ライボルト"
+    },
+    {
+      "nationalNo": 311,
+      "nameJa": "プラスル"
+    },
+    {
+      "nationalNo": 312,
+      "nameJa": "マイナン"
+    },
+    {
+      "nationalNo": 313,
+      "nameJa": "バルビート"
+    },
+    {
+      "nationalNo": 314,
+      "nameJa": "イルミーゼ"
+    },
+    {
+      "nationalNo": 315,
+      "nameJa": "ロゼリア"
+    },
+    {
+      "nationalNo": 316,
+      "nameJa": "ゴクリン"
+    },
+    {
+      "nationalNo": 317,
+      "nameJa": "マルノーム"
+    },
+    {
+      "nationalNo": 318,
+      "nameJa": "キバニア"
+    },
+    {
+      "nationalNo": 319,
+      "nameJa": "サメハダー"
+    },
+    {
+      "nationalNo": 320,
+      "nameJa": "ホエルコ"
+    },
+    {
+      "nationalNo": 321,
+      "nameJa": "ホエルオー"
+    },
+    {
+      "nationalNo": 322,
+      "nameJa": "ドンメル"
+    },
+    {
+      "nationalNo": 323,
+      "nameJa": "バクーダ"
+    },
+    {
+      "nationalNo": 324,
+      "nameJa": "コータス"
+    },
+    {
+      "nationalNo": 325,
+      "nameJa": "バネブー"
+    },
+    {
+      "nationalNo": 326,
+      "nameJa": "ブーピッグ"
+    },
+    {
+      "nationalNo": 327,
+      "nameJa": "パッチール"
+    },
+    {
+      "nationalNo": 328,
+      "nameJa": "ナックラー"
+    },
+    {
+      "nationalNo": 329,
+      "nameJa": "ビブラーバ"
+    },
+    {
+      "nationalNo": 330,
+      "nameJa": "フライゴン"
+    },
+    {
+      "nationalNo": 331,
+      "nameJa": "サボネア"
+    },
+    {
+      "nationalNo": 332,
+      "nameJa": "ノクタス"
+    },
+    {
+      "nationalNo": 333,
+      "nameJa": "チルット"
+    },
+    {
+      "nationalNo": 334,
+      "nameJa": "チルタリス"
+    },
+    {
+      "nationalNo": 335,
+      "nameJa": "ザングース"
+    },
+    {
+      "nationalNo": 336,
+      "nameJa": "ハブネーク"
+    },
+    {
+      "nationalNo": 337,
+      "nameJa": "ルナトーン"
+    },
+    {
+      "nationalNo": 338,
+      "nameJa": "ソルロック"
+    },
+    {
+      "nationalNo": 339,
+      "nameJa": "ドジョッチ"
+    },
+    {
+      "nationalNo": 340,
+      "nameJa": "ナマズン"
+    },
+    {
+      "nationalNo": 341,
+      "nameJa": "ヘイガニ"
+    },
+    {
+      "nationalNo": 342,
+      "nameJa": "シザリガー"
+    },
+    {
+      "nationalNo": 343,
+      "nameJa": "ヤジロン"
+    },
+    {
+      "nationalNo": 344,
+      "nameJa": "ネンドール"
+    },
+    {
+      "nationalNo": 345,
+      "nameJa": "リリーラ"
+    },
+    {
+      "nationalNo": 346,
+      "nameJa": "ユレイドル"
+    },
+    {
+      "nationalNo": 347,
+      "nameJa": "アノプス"
+    },
+    {
+      "nationalNo": 348,
+      "nameJa": "アーマルド"
+    },
+    {
+      "nationalNo": 349,
+      "nameJa": "ヒンバス"
+    },
+    {
+      "nationalNo": 350,
+      "nameJa": "ミロカロス"
+    },
+    {
+      "nationalNo": 351,
+      "nameJa": "ポワルン"
+    },
+    {
+      "nationalNo": 352,
+      "nameJa": "カクレオン"
+    },
+    {
+      "nationalNo": 353,
+      "nameJa": "カゲボウズ"
+    },
+    {
+      "nationalNo": 354,
+      "nameJa": "ジュペッタ"
+    },
+    {
+      "nationalNo": 355,
+      "nameJa": "ヨマワル"
+    },
+    {
+      "nationalNo": 356,
+      "nameJa": "サマヨール"
+    },
+    {
+      "nationalNo": 357,
+      "nameJa": "トロピウス"
+    },
+    {
+      "nationalNo": 358,
+      "nameJa": "チリーン"
+    },
+    {
+      "nationalNo": 359,
+      "nameJa": "アブソル"
+    },
+    {
+      "nationalNo": 360,
+      "nameJa": "ソーナノ"
+    },
+    {
+      "nationalNo": 361,
+      "nameJa": "ユキワラシ"
+    },
+    {
+      "nationalNo": 362,
+      "nameJa": "オニゴーリ"
+    },
+    {
+      "nationalNo": 363,
+      "nameJa": "タマザラシ"
+    },
+    {
+      "nationalNo": 364,
+      "nameJa": "トドグラー"
+    },
+    {
+      "nationalNo": 365,
+      "nameJa": "トドゼルガ"
+    },
+    {
+      "nationalNo": 366,
+      "nameJa": "パールル"
+    },
+    {
+      "nationalNo": 367,
+      "nameJa": "ハンテール"
+    },
+    {
+      "nationalNo": 368,
+      "nameJa": "サクラビス"
+    },
+    {
+      "nationalNo": 369,
+      "nameJa": "ジーランス"
+    },
+    {
+      "nationalNo": 370,
+      "nameJa": "ラブカス"
+    },
+    {
+      "nationalNo": 371,
+      "nameJa": "タツベイ"
+    },
+    {
+      "nationalNo": 372,
+      "nameJa": "コモルー"
+    },
+    {
+      "nationalNo": 373,
+      "nameJa": "ボーマンダ"
+    },
+    {
+      "nationalNo": 374,
+      "nameJa": "ダンバル"
+    },
+    {
+      "nationalNo": 375,
+      "nameJa": "メタング"
+    },
+    {
+      "nationalNo": 376,
+      "nameJa": "メタグロス"
+    },
+    {
+      "nationalNo": 377,
+      "nameJa": "レジロック"
+    },
+    {
+      "nationalNo": 378,
+      "nameJa": "レジアイス"
+    },
+    {
+      "nationalNo": 379,
+      "nameJa": "レジスチル"
+    },
+    {
+      "nationalNo": 380,
+      "nameJa": "ラティアス"
+    },
+    {
+      "nationalNo": 381,
+      "nameJa": "ラティオス"
+    },
+    {
+      "nationalNo": 382,
+      "nameJa": "カイオーガ"
+    },
+    {
+      "nationalNo": 383,
+      "nameJa": "グラードン"
+    },
+    {
+      "nationalNo": 384,
+      "nameJa": "レックウザ"
+    },
+    {
+      "nationalNo": 385,
+      "nameJa": "ジラーチ"
+    },
+    {
+      "nationalNo": 386,
+      "nameJa": "デオキシス"
+    },
+    {
+      "nationalNo": 387,
+      "nameJa": "ナエトル"
+    },
+    {
+      "nationalNo": 388,
+      "nameJa": "ハヤシガメ"
+    },
+    {
+      "nationalNo": 389,
+      "nameJa": "ドダイトス"
+    },
+    {
+      "nationalNo": 390,
+      "nameJa": "ヒコザル"
+    },
+    {
+      "nationalNo": 391,
+      "nameJa": "モウカザル"
+    },
+    {
+      "nationalNo": 392,
+      "nameJa": "ゴウカザル"
+    },
+    {
+      "nationalNo": 393,
+      "nameJa": "ポッチャマ"
+    },
+    {
+      "nationalNo": 394,
+      "nameJa": "ポッタイシ"
+    },
+    {
+      "nationalNo": 395,
+      "nameJa": "エンペルト"
+    },
+    {
+      "nationalNo": 396,
+      "nameJa": "ムックル"
+    },
+    {
+      "nationalNo": 397,
+      "nameJa": "ムクバード"
+    },
+    {
+      "nationalNo": 398,
+      "nameJa": "ムクホーク"
+    },
+    {
+      "nationalNo": 399,
+      "nameJa": "ビッパ"
+    },
+    {
+      "nationalNo": 400,
+      "nameJa": "ビーダル"
+    },
+    {
+      "nationalNo": 401,
+      "nameJa": "コロボーシ"
+    },
+    {
+      "nationalNo": 402,
+      "nameJa": "コロトック"
+    },
+    {
+      "nationalNo": 403,
+      "nameJa": "コリンク"
+    },
+    {
+      "nationalNo": 404,
+      "nameJa": "ルクシオ"
+    },
+    {
+      "nationalNo": 405,
+      "nameJa": "レントラー"
+    },
+    {
+      "nationalNo": 406,
+      "nameJa": "スボミー"
+    },
+    {
+      "nationalNo": 407,
+      "nameJa": "ロズレイド"
+    },
+    {
+      "nationalNo": 408,
+      "nameJa": "ズガイドス"
+    },
+    {
+      "nationalNo": 409,
+      "nameJa": "ラムパルド"
+    },
+    {
+      "nationalNo": 410,
+      "nameJa": "タテトプス"
+    },
+    {
+      "nationalNo": 411,
+      "nameJa": "トリデプス"
+    },
+    {
+      "nationalNo": 412,
+      "nameJa": "ミノムッチ"
+    },
+    {
+      "nationalNo": 413,
+      "nameJa": "ミノマダム"
+    },
+    {
+      "nationalNo": 414,
+      "nameJa": "ガーメイル"
+    },
+    {
+      "nationalNo": 415,
+      "nameJa": "ミツハニー"
+    },
+    {
+      "nationalNo": 416,
+      "nameJa": "ビークイン"
+    },
+    {
+      "nationalNo": 417,
+      "nameJa": "パチリス"
+    },
+    {
+      "nationalNo": 418,
+      "nameJa": "ブイゼル"
+    },
+    {
+      "nationalNo": 419,
+      "nameJa": "フローゼル"
+    },
+    {
+      "nationalNo": 420,
+      "nameJa": "チェリンボ"
+    },
+    {
+      "nationalNo": 421,
+      "nameJa": "チェリム"
+    },
+    {
+      "nationalNo": 422,
+      "nameJa": "カラナクシ"
+    },
+    {
+      "nationalNo": 423,
+      "nameJa": "トリトドン"
+    },
+    {
+      "nationalNo": 425,
+      "nameJa": "フワンテ"
+    },
+    {
+      "nationalNo": 426,
+      "nameJa": "フワライド"
+    },
+    {
+      "nationalNo": 427,
+      "nameJa": "ミミロル"
+    },
+    {
+      "nationalNo": 428,
+      "nameJa": "ミミロップ"
+    },
+    {
+      "nationalNo": 429,
+      "nameJa": "ムウマージ"
+    },
+    {
+      "nationalNo": 430,
+      "nameJa": "ドンカラス"
+    },
+    {
+      "nationalNo": 431,
+      "nameJa": "ニャルマー"
+    },
+    {
+      "nationalNo": 432,
+      "nameJa": "ブニャット"
+    },
+    {
+      "nationalNo": 433,
+      "nameJa": "リーシャン"
+    },
+    {
+      "nationalNo": 434,
+      "nameJa": "スカンプー"
+    },
+    {
+      "nationalNo": 435,
+      "nameJa": "スカタンク"
+    },
+    {
+      "nationalNo": 436,
+      "nameJa": "ドーミラー"
+    },
+    {
+      "nationalNo": 437,
+      "nameJa": "ドータクン"
+    },
+    {
+      "nationalNo": 438,
+      "nameJa": "ウソハチ"
+    },
+    {
+      "nationalNo": 439,
+      "nameJa": "マネネ"
+    },
+    {
+      "nationalNo": 440,
+      "nameJa": "ピンプク"
+    },
+    {
+      "nationalNo": 441,
+      "nameJa": "ペラップ"
+    },
+    {
+      "nationalNo": 442,
+      "nameJa": "ミカルゲ"
+    },
+    {
+      "nationalNo": 443,
+      "nameJa": "フカマル"
+    },
+    {
+      "nationalNo": 444,
+      "nameJa": "ガバイト"
+    },
+    {
+      "nationalNo": 445,
+      "nameJa": "ガブリアス"
+    },
+    {
+      "nationalNo": 446,
+      "nameJa": "ゴンベ"
+    },
+    {
+      "nationalNo": 447,
+      "nameJa": "リオル"
+    },
+    {
+      "nationalNo": 448,
+      "nameJa": "ルカリオ"
+    },
+    {
+      "nationalNo": 449,
+      "nameJa": "ヒポポタス"
+    },
+    {
+      "nationalNo": 450,
+      "nameJa": "カバルドン"
+    },
+    {
+      "nationalNo": 451,
+      "nameJa": "スコルピ"
+    },
+    {
+      "nationalNo": 452,
+      "nameJa": "ドラピオン"
+    },
+    {
+      "nationalNo": 453,
+      "nameJa": "グレッグル"
+    },
+    {
+      "nationalNo": 454,
+      "nameJa": "ドクロッグ"
+    },
+    {
+      "nationalNo": 455,
+      "nameJa": "マスキッパ"
+    },
+    {
+      "nationalNo": 456,
+      "nameJa": "ケイコウオ"
+    },
+    {
+      "nationalNo": 457,
+      "nameJa": "ネオラント"
+    },
+    {
+      "nationalNo": 458,
+      "nameJa": "タマンタ"
+    },
+    {
+      "nationalNo": 459,
+      "nameJa": "ユキカブリ"
+    },
+    {
+      "nationalNo": 460,
+      "nameJa": "ユキノオー"
+    },
+    {
+      "nationalNo": 461,
+      "nameJa": "マニューラ"
+    },
+    {
+      "nationalNo": 462,
+      "nameJa": "ジバコイル"
+    },
+    {
+      "nationalNo": 464,
+      "nameJa": "ドサイドン"
+    },
+    {
+      "nationalNo": 466,
+      "nameJa": "エレキブル"
+    },
+    {
+      "nationalNo": 467,
+      "nameJa": "ブーバーン"
+    },
+    {
+      "nationalNo": 468,
+      "nameJa": "トゲキッス"
+    },
+    {
+      "nationalNo": 470,
+      "nameJa": "リーフィア"
+    },
+    {
+      "nationalNo": 471,
+      "nameJa": "グレイシア"
+    },
+    {
+      "nationalNo": 472,
+      "nameJa": "グライオン"
+    },
+    {
+      "nationalNo": 474,
+      "nameJa": "ポリゴンZ"
+    },
+    {
+      "nationalNo": 475,
+      "nameJa": "エルレイド"
+    },
+    {
+      "nationalNo": 476,
+      "nameJa": "ダイノーズ"
+    },
+    {
+      "nationalNo": 477,
+      "nameJa": "ヨノワール"
+    },
+    {
+      "nationalNo": 478,
+      "nameJa": "ユキメノコ"
+    },
+    {
+      "nationalNo": 479,
+      "nameJa": "ロトム"
+    },
+    {
+      "nationalNo": 480,
+      "nameJa": "ユクシー"
+    },
+    {
+      "nationalNo": 481,
+      "nameJa": "エムリット"
+    },
+    {
+      "nationalNo": 482,
+      "nameJa": "アグノム"
+    },
+    {
+      "nationalNo": 483,
+      "nameJa": "ディアルガ"
+    },
+    {
+      "nationalNo": 484,
+      "nameJa": "パルキア"
+    },
+    {
+      "nationalNo": 485,
+      "nameJa": "ヒードラン"
+    },
+    {
+      "nationalNo": 486,
+      "nameJa": "レジギガス"
+    },
+    {
+      "nationalNo": 487,
+      "nameJa": "ギラティナ"
+    },
+    {
+      "nationalNo": 488,
+      "nameJa": "クレセリア"
+    },
+    {
+      "nationalNo": 489,
+      "nameJa": "フィオネ"
+    },
+    {
+      "nationalNo": 490,
+      "nameJa": "マナフィ"
+    },
+    {
+      "nationalNo": 491,
+      "nameJa": "ダークライ"
+    },
+    {
+      "nationalNo": 492,
+      "nameJa": "シェイミ"
+    },
+    {
+      "nationalNo": 493,
+      "nameJa": "アルセウス"
+    }
+  ],
+  "ballOptions": [
+    "マスターボール",
+    "ハイパーボール",
+    "スーパーボール",
+    "モンスターボール",
+    "ネットボール",
+    "ダイブボール",
+    "ネストボール",
+    "リピートボール",
+    "タイマーボール",
+    "プレミアボール",
+    "ダークボール",
+    "ヒールボール",
+    "クイックボール",
+    "ルアーボール",
+    "レベルボール",
+    "ムーンボール",
+    "ヘビーボール",
+    "スピードボール",
+    "フレンドボール",
+    "ラブラブボール",
+    "コンペボール",
+    "プレシャスボール"
+  ],
+  "ribbonOptions": [
+    "シンオウチャンプリボン",
+    "クールリボン",
+    "クールリボングレート",
+    "クールリボンウルトラ",
+    "クールリボンマスター",
+    "ビューティリボン",
+    "ビューティリボングレート",
+    "ビューティリボンウルトラ",
+    "ビューティリボンマスター",
+    "キュートリボン",
+    "キュートリボングレート",
+    "キュートリボンウルトラ",
+    "キュートリボンマスター",
+    "ジーニアスリボン",
+    "ジーニアスリボングレート",
+    "ジーニアスリボンウルトラ",
+    "ジーニアスリボンマスター",
+    "パワフルリボン",
+    "パワフルリボングレート",
+    "パワフルリボンウルトラ",
+    "パワフルリボンマスター",
+    "アビリティリボン",
+    "グレートアビリティリボン",
+    "ダブルアビリティリボン",
+    "マルチアビリティリボン",
+    "ペアアビリティリボン",
+    "ワールドアビリティリボン",
+    "しゃっきリボン",
+    "どっきリボン",
+    "しょんぼリボン",
+    "うっかリボン",
+    "すっきリボン",
+    "ぐっすリボン",
+    "にっこリボン",
+    "ゴージャスリボン",
+    "ロイヤルリボン",
+    "ゴージャスロイヤルリボン",
+    "あしあとリボン",
+    "がんばリボン",
+    "レジェンドリボン",
+    "プレミアリボン"
+  ]
+}

@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f4f1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="GoHOME cherish">
+<title>GoHOME cherish — BW以前 preview</title>
+<style>
+:root{
+  --bg:#f5f4f1;
+  --surface:#fbfaf7;
+  --surface2:#efeeea;
+  --text:#323437;
+  --muted:#777b7f;
+  --faint:#a5a8aa;
+  --line:#deddd8;
+  --line2:#e8e7e2;
+  --accent:#627f91;
+  --accent-soft:#e8eff3;
+  --rose:#a96f7c;
+  --rose-soft:#f3e8eb;
+  --danger:#a66b6b;
+  --font:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Yu Gothic","Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px}
+button,input,select,textarea{font:inherit;color:inherit}
+button,label{touch-action:manipulation}
+button{cursor:pointer}
+#drawer-none,#left-toggle,#right-toggle{position:fixed;opacity:0;pointer-events:none}
+.app{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:30;height:52px;
+  display:grid;grid-template-columns:44px 1fr 44px;align-items:center;
+  padding-top:env(safe-area-inset-top);
+  background:rgba(245,244,241,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.top-action{
+  width:36px;height:36px;margin:auto;border:0;background:transparent;
+  display:grid;place-items:center;font-size:18px;border-radius:8px;
+}
+.top-action:active{background:var(--surface2)}
+.brand{
+  text-align:center;font-family:var(--mono);font-size:11px;
+  letter-spacing:.08em;font-weight:650;white-space:nowrap;
+}
+.main{max-width:760px;margin:0 auto;padding:18px 16px 60px}
+.rom-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:13px}
+.rom-name-wrap{display:flex;align-items:center;min-width:0;gap:3px}
+.rom-name{
+  margin:0;font-size:25px;line-height:1.15;font-weight:720;letter-spacing:-.025em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.pencil{border:0;background:transparent;font-size:14px;opacity:.48;padding:5px}
+.counter{
+  white-space:nowrap;color:var(--muted);font-family:var(--mono);
+  font-size:9px;line-height:1.45;text-align:right;padding-bottom:2px
+}
+.counter b{font-size:11px;color:var(--text);font-weight:700}
+.search-shell{
+  border:1px solid var(--line);background:var(--surface);
+  min-height:42px;display:flex;align-items:center;border-radius:8px;
+  overflow:hidden;
+}
+.search-shell>span{font-size:13px;padding-left:12px;opacity:.6}
+.search-shell input{flex:1;min-width:0;border:0;background:transparent;outline:0;padding:10px 8px;font-size:13px}
+.search-shell details{position:relative}
+.search-shell summary{list-style:none;padding:11px 12px;font-size:10px;color:var(--muted);cursor:pointer}
+.search-shell summary::-webkit-details-marker{display:none}
+.search-pop{
+  position:absolute;right:0;top:38px;width:min(310px,88vw);
+  background:var(--surface);border:1px solid var(--line);
+  box-shadow:0 10px 28px rgba(30,30,30,.10);padding:12px;z-index:20;border-radius:8px
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.field{display:grid;gap:4px;font-size:9px;color:var(--muted)}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid var(--line);background:#fff;border-radius:6px;padding:7px 8px;font-size:11px;outline:none
+}
+.filters{display:flex;gap:5px;align-items:center;overflow-x:auto;padding:8px 0 9px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.filter{
+  flex:0 0 auto;min-width:36px;height:31px;border:1px solid var(--line);
+  border-radius:7px;background:transparent;padding:0 9px;font-size:13px;
+}
+.filter.active{background:var(--accent-soft);border-color:#cddbe3;color:#4f6c7d}
+.dex-head,.dex-row{
+  display:grid;grid-template-columns:32px 30px minmax(56px,1fr) repeat(calc(var(--flag-cols,4) - 1),40px) 40px;
+  align-items:center;column-gap:1px;
+}
+.dex-head{
+  min-height:24px;border-bottom:1px solid var(--line);font-family:var(--mono);
+  font-size:8px;color:var(--faint)
+}
+.dex-head span:nth-child(n+4){text-align:center}
+.dex-row{
+  min-height:48px;border-bottom:1px solid var(--line2);
+}
+.no{font-family:var(--mono);font-size:9px;color:var(--faint)}
+.pname{font-size:13px;font-weight:620;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:2px}
+.cellbtn{
+  width:40px;height:44px;border:0;background:transparent;border-radius:7px;
+  display:grid;place-items:center;font-size:14px;padding:0
+}
+.cellbtn.fav-lead{width:32px}
+.cellbtn.off{opacity:.25;filter:grayscale(1)}
+.cellbtn.status.absent{opacity:.45}
+.cellbtn:active{background:var(--surface2)}
+.dex-item.highlight{
+  background:linear-gradient(90deg,var(--accent-soft),rgba(232,239,243,.38) 72%,transparent);
+  box-shadow:inset 3px 0 0 #8da7b6
+}
+.details{display:none;padding:7px 0 11px 38px;border-bottom:1px solid var(--line2)}
+.dex-item.open .details{display:block}
+.individuals{display:flex;align-items:center;gap:5px;margin-bottom:5px;flex-wrap:wrap}
+.individual{
+  border:1px solid var(--line);background:transparent;border-radius:6px;height:25px;min-width:25px;padding:0 7px;font-size:9px
+}
+.individual.active{background:var(--accent-soft);border-color:#cedce3}
+.indiv-group{display:none}
+.indiv-group.active{display:block}
+.dgroup{border-top:1px solid var(--line2)}
+.dgroup summary{list-style:none;padding:8px 0;font-size:10px;font-weight:650;color:#607786;cursor:pointer}
+.dgroup summary::-webkit-details-marker{display:none}
+.dgroup summary::after{content:"⌄";float:right;color:var(--faint)}
+.dgroup[open] summary::after{content:"⌃"}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding-bottom:8px}
+.note{font-size:9px;color:var(--muted);line-height:1.55}
+.focusbar{
+  display:none;align-items:center;justify-content:space-between;
+  border-left:3px solid #8da7b6;background:var(--accent-soft);
+  margin:0 0 7px;padding:7px 9px;font-size:10px;color:#4e6877
+}
+.focusbar.show{display:flex}
+.focusbar button{border:0;background:transparent;color:inherit}
+
+.dex-section-head{
+  display:flex;align-items:baseline;gap:6px;padding:14px 0 6px;
+  font-size:11px;font-weight:700;color:var(--text);
+}
+.dex-section-head .count{font-family:var(--mono);font-size:9px;color:var(--faint);font-weight:400}
+.national-dex{border-top:1px solid var(--line);margin-top:6px}
+.national-dex>summary{
+  list-style:none;padding:11px 2px;font-size:11px;font-weight:650;color:#607786;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.national-dex>summary::-webkit-details-marker{display:none}
+.national-dex>summary::after{content:"全国図鑑を開く ⌄";color:var(--faint);font-weight:400;font-size:9px}
+.national-dex[open]>summary::after{content:"全国図鑑を閉じる ⌃"}
+
+.ribbon-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.ribbon-picker-btn{
+  width:100%;border:1px solid var(--line);background:var(--surface2);border-radius:8px;
+  padding:11px 12px;font-size:12px;text-align:left;display:flex;align-items:center;justify-content:space-between
+}
+.ribbon-picker-btn .count{color:var(--accent);font-size:10px}
+.ribbon-selected-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ribbon-selected-chip{
+  background:var(--rose-soft);border:1px solid #e2c3cb;color:#8a5563;border-radius:12px;
+  padding:4px 9px;font-size:10px
+}
+.ribbon-sheet-body{padding:0;max-height:70vh;display:flex;flex-direction:column}
+.ribbon-search-box{padding:10px 12px;border-bottom:1px solid var(--line)}
+.ribbon-search-box input{
+  width:100%;border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-size:12px;background:var(--surface2)
+}
+.ribbon-list{overflow-y:auto;padding:8px 12px 14px}
+.ribbon-list-item{
+  display:flex;align-items:center;gap:9px;padding:9px 4px;border-bottom:1px solid var(--line2);font-size:12px
+}
+.ribbon-list-item .check{
+  width:18px;height:18px;border:1.5px solid var(--line);border-radius:5px;flex:none;
+  display:grid;place-items:center;font-size:11px;color:transparent
+}
+.ribbon-list-item.on .check{background:var(--accent-soft);border-color:#cddbe3;color:#4f6c7d}
+.ribbon-tab{
+  border:1px solid var(--line);background:transparent;border-radius:16px;
+  padding:6px 11px;font-size:10px;color:var(--muted);min-height:30px;
+}
+.ribbon-tab.on{background:var(--rose-soft);border-color:#e2c3cb;color:#8a5563;font-weight:650}
+
+.detail-grid3{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding-bottom:8px}
+.detail-grid3 .field.full{grid-column:1/-1}
+
+.overlay{
+  position:fixed;inset:0;background:rgba(26,28,30,.38);z-index:50;
+  opacity:0;pointer-events:none;transition:opacity .2s ease
+}
+.drawer{
+  position:fixed;top:0;bottom:0;z-index:60;background:var(--surface);
+  width:min(324px,88vw);overflow-y:auto;transition:transform .24s ease;
+  box-shadow:0 0 28px rgba(20,20,20,.08)
+}
+.left{left:0;transform:translateX(-102%);border-right:1px solid var(--line)}
+.right{right:0;transform:translateX(102%);border-left:1px solid var(--line)}
+#left-toggle:checked~.app .left{transform:translateX(0)}
+#left-toggle:checked~.app .overlay{opacity:1;pointer-events:auto}
+#right-toggle:checked~.app .right{transform:translateX(0)}
+#right-toggle:checked~.app .overlay{opacity:1;pointer-events:auto}
+.drawer-head{
+  position:sticky;top:0;z-index:2;background:rgba(251,250,247,.96);backdrop-filter:blur(12px);
+  min-height:52px;padding:0 12px;display:flex;align-items:center;border-bottom:1px solid var(--line)
+}
+.drawer-head strong{font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+.drawer-close{margin-left:auto;width:34px;height:34px;border:0;background:transparent;font-size:19px;display:grid;place-items:center}
+.section{padding:13px 14px;border-bottom:1px solid var(--line2)}
+.kicker{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--faint);margin-bottom:5px}
+.current-name{font-size:18px;font-weight:700}
+.current-base{font-size:9px;color:var(--muted);margin-top:3px}
+.drawer details{border-bottom:1px solid var(--line2)}
+.drawer details>summary{list-style:none;padding:13px 14px;font-size:11px;font-weight:650;cursor:pointer}
+.drawer details>summary::-webkit-details-marker{display:none}
+.drawer details>summary::after{content:"＋";float:right;color:var(--faint);font-weight:400}
+.drawer details[open]>summary::after{content:"−"}
+.drawer-body{padding:0 14px 13px;display:grid;gap:8px}
+.rom-list{display:grid}
+.rom{
+  width:100%;border:0;border-bottom:1px solid var(--line2);background:transparent;
+  padding:11px 14px;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:8px
+}
+.rom strong{font-size:12px;font-weight:620}
+.rom small{display:block;font-size:8px;color:var(--faint);margin-top:3px}
+.rom.active{background:var(--accent-soft)}
+.rom-edit-toggle{
+  border:1px solid var(--line);background:transparent;border-radius:7px;
+  padding:5px 10px;font-size:10px;color:var(--accent)
+}
+.rom-edit-toggle.on{background:var(--accent-soft);border-color:#c9d9e1}
+.rom-list.editing .rom{pointer-events:none}
+.rom-edit-controls{display:none;align-items:center;gap:4px}
+.rom-list.editing .rom-edit-controls{display:flex;pointer-events:auto}
+.rom-list.editing .arrow{display:none}
+.rom-edit-controls button{
+  border:1px solid var(--line);background:var(--surface);border-radius:6px;
+  width:28px;height:28px;font-size:12px;display:grid;place-items:center;color:var(--muted)
+}
+.rom-edit-controls button:disabled{opacity:.3}
+.rom-edit-controls button.rom-delete{color:#b1614a;border-color:#e7b8ab}
+.menu{display:grid}
+.menu button,.menu-link{
+  min-height:46px;border:0;border-bottom:1px solid var(--line2);background:transparent;
+  padding:0 14px;text-align:left;display:flex;align-items:center;justify-content:space-between;font-size:12px;
+  color:inherit;text-decoration:none
+}
+.menu button:active,.rom:active,.menu-link:active{background:var(--surface2)}
+.arrow{font-size:18px;color:var(--faint)}
+.add{
+  width:100%;border:0;background:transparent;padding:12px 14px;text-align:left;
+  color:var(--accent);font-size:11px
+}
+.globalbox{margin-bottom:8px}
+.gfilters{display:flex;flex-wrap:wrap;gap:6px;row-gap:8px}
+.gfilters::-webkit-scrollbar{display:none}
+.gsearch-advanced{border-top:1px solid var(--line2);margin-top:4px}
+.gsearch-advanced>summary{
+  list-style:none;padding:11px 2px;font-size:10px;font-weight:650;color:#607786;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.gsearch-advanced>summary::-webkit-details-marker{display:none}
+.gsearch-advanced>summary::after{content:"詳細検索 ⌄";color:var(--faint);font-weight:400;font-size:9px}
+.gsearch-advanced[open]>summary::after{content:"詳細検索 ⌃"}
+.gsearch-sub{border-top:1px solid var(--line2)}
+.gsearch-sub>summary{list-style:none;padding:9px 2px;font-size:10px;font-weight:620;color:var(--text);cursor:pointer}
+.gsearch-sub>summary::-webkit-details-marker{display:none}
+.gsearch-sub>summary::after{content:"⌄";float:right;color:var(--faint)}
+.gsearch-sub[open]>summary::after{content:"⌃"}
+.gsearch-sub-body{padding:2px 0 9px;display:grid;gap:8px}
+.field-head{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.invert-toggle{
+  border:1px solid var(--line);background:transparent;border-radius:10px;
+  width:26px;height:22px;font-size:11px;padding:0;opacity:.4;flex:none
+}
+.invert-toggle.on{opacity:1;background:#fbe9e4;border-color:#e7b8ab}
+.field.inverted{position:relative}
+.field.inverted::before{
+  content:"未所持で検索中";position:absolute;top:-1px;right:0;font-size:8px;color:#b1614a
+}
+.chip-group{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  border:1px solid var(--line);background:transparent;border-radius:16px;
+  padding:6px 11px;font-size:10px;color:var(--muted);min-height:30px;
+}
+.chip.on{background:var(--accent-soft);border-color:#cddbe3;color:#4f6c7d;font-weight:650}
+.chip-group.inverted .chip.on{background:#fbe9e4;border-color:#e7b8ab;color:#b1614a}
+.sample-note{font-size:8px;color:var(--faint);line-height:1.5;padding:2px 2px 6px}
+.result{
+  width:100%;border:0;border-bottom:1px solid var(--line2);background:transparent;
+  padding:10px 14px;text-align:left
+}
+.result-main{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.result strong{font-size:12px}
+.result small{display:block;margin-top:3px;font-size:8px;color:var(--muted)}
+.result-icons{font-size:10px;white-space:nowrap}
+.pill{
+  height:32px;min-width:32px;border:1px solid var(--line);background:transparent;border-radius:16px;font-size:13px;
+  padding:0 10px;display:inline-flex;align-items:center;justify-content:center
+}
+.pill.active{background:var(--accent-soft);border-color:#cddbe3}
+.sheet{
+  position:fixed;inset:0;z-index:80;background:rgba(26,28,30,.38);
+  display:none;align-items:center;justify-content:center;padding:20px
+}
+.sheet.show{display:flex}
+.sheet-card{
+  width:min(360px,94vw);background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.16);overflow:hidden
+}
+.sheet-head{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.sheet-head strong{font-size:12px}
+.sheet-head button{margin-left:auto;border:0;background:transparent;font-size:18px}
+.sheet-body{padding:14px}
+.actions{display:flex;justify-content:flex-end;gap:7px;margin-top:12px}
+.actions button{border:1px solid var(--line);background:transparent;border-radius:7px;padding:7px 11px;font-size:11px}
+.actions .primary{background:var(--accent-soft);border-color:#c9d9e1;color:#486879}
+
+.backup-block{margin-bottom:18px}
+.backup-block:last-child{margin-bottom:0}
+.backup-block-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.backup-btn-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.backup-export-btn{
+  border:1px solid var(--line);background:var(--surface2);border-radius:9px;padding:12px 10px;
+  font-size:12px;font-weight:650;text-align:left;display:flex;flex-direction:column;gap:3px
+}
+.backup-export-btn small{font-size:9.5px;color:var(--faint);font-weight:500}
+.backup-export-btn:active{background:var(--accent-soft)}
+.backup-import-btn{
+  width:100%;border:1px solid var(--line);background:var(--surface2);border-radius:9px;
+  padding:12px;font-size:12px;font-weight:650;margin-top:6px;color:var(--accent)
+}
+.backup-import-btn:active{background:var(--accent-soft)}
+.toast{
+  position:fixed;left:50%;bottom:max(22px,env(safe-area-inset-bottom));z-index:100;transform:translateX(-50%);
+  background:#35383a;color:#fff;padding:8px 12px;border-radius:8px;font-size:10px;display:none
+}
+.toast.show{display:block}
+@media(max-width:420px){
+  .main{padding:15px 12px 50px}
+  .rom-name{font-size:23px}
+  .counter{font-size:8px}
+  .counter b{font-size:10px}
+  .dex-head,.dex-row{grid-template-columns:28px 26px minmax(48px,1fr) repeat(calc(var(--flag-cols,4) - 1),36px) 36px}
+  .cellbtn{width:36px;height:44px}
+  .cellbtn.fav-lead{width:28px}
+  .details{padding-left:28px}
+}
+
+.migration-help{
+  margin:-1px 0 8px;
+  font-size:8px;
+  color:var(--faint);
+  line-height:1.45;
+}
+.dex-head .transfer-head{font-size:10px}
+.cellbtn.route-off{opacity:.25;filter:grayscale(1)}
+
+</style>
+</head>
+<body style="--flag-cols:6">
+<input id="drawer-none" name="drawer-state" type="radio" checked>
+<input id="left-toggle" name="drawer-state" type="radio">
+<input id="right-toggle" name="drawer-state" type="radio">
+
+<div class="app">
+  <header class="topbar">
+    <label class="top-action" for="left-toggle" aria-label="ソフト・メニュー">🔖</label>
+    <div class="brand">GoHOME cherish</div>
+    <label class="top-action" for="right-toggle" aria-label="全ROM横断検索">🔍</label>
+  </header>
+
+  <label class="overlay" for="drawer-none" id="overlay-left"></label>
+  <label class="overlay" for="drawer-none" id="overlay-right"></label>
+
+  <aside class="drawer left">
+    <div class="drawer-head">
+      <strong>SOFTWARE</strong>
+      <label class="drawer-close" for="drawer-none">×</label>
+    </div>
+
+    <section class="section">
+      <div class="kicker">NOW OPEN</div>
+      <div class="current-name" id="side-current-name">ダイヤモンド①</div>
+      <div class="current-base" id="side-current-base">ダイヤモンド</div>
+    </section>
+
+    <details open>
+      <summary>このソフトの情報</summary>
+      <div class="drawer-body">
+        <label class="field">表示名
+          <input id="side-display-name" value="ダイヤモンド①" maxlength="40">
+        </label>
+        <div class="grid2">
+          <label class="field">主人公名<input placeholder="―"></label>
+          <label class="field">プレイ時間<input placeholder="―"></label>
+          <label class="field">バッジ<input placeholder="―"></label>
+          <label class="field">所持金<input placeholder="―"></label>
+        </div>
+        <label class="field">進行
+          <select><option>未クリア</option><option>クリア</option><option>殿堂入り後</option></select>
+        </label>
+        <label class="field">メモ<textarea rows="3" placeholder="メモ"></textarea></label>
+      </div>
+    </details>
+
+    <section>
+      <div class="section" style="padding-bottom:7px;display:flex;align-items:center;justify-content:space-between">
+        <div class="kicker" style="margin:0">SOFTWARE LIST</div>
+        <button id="rom-edit-toggle" class="rom-edit-toggle">編集</button>
+      </div>
+      <div class="rom-list" id="rom-list">
+        <button class="rom active" data-rom-id="rom-diamond-default" data-rom="ダイヤモンド①" data-base="ダイヤモンド"><span><strong>ダイヤモンド①</strong><small>ダイヤモンド</small></span><span class="arrow">›</span></button>
+      </div>
+      <button class="add" id="add-rom">＋ ソフトを追加</button>
+    </section>
+
+    <nav class="menu">
+      <button><span>引っ越し</span><span class="arrow">›</span></button>
+      <button><span>配布</span><span class="arrow">›</span></button>
+      <button><span>タスク</span><span class="arrow">›</span></button>
+      <a href="playthrough.html" class="menu-link"><span>周回メモ</span><span class="arrow">›</span></a>
+      <button id="backup-btn"><span>書き出し・読み込み</span><span class="arrow">›</span></button>
+      <button><span>設定</span><span class="arrow">›</span></button>
+    </nav>
+  </aside>
+
+  <aside class="drawer right">
+    <div class="drawer-head">
+      <strong>SEARCH ALL ROMS</strong>
+      <label class="drawer-close" for="drawer-none">×</label>
+    </div>
+    <section class="section">
+      <div class="search-shell globalbox">
+        <span>🔍</span><input id="global-search" placeholder="ポケモン名で検索">
+      </div>
+      <div class="gfilters">
+        <button class="pill active" data-g="all">すべて</button>
+        <button class="pill" data-g="owned">✅</button>
+        <button class="pill" data-g="absent">➖</button>
+        <button class="pill" data-g="favorite">🩷</button>
+        <button class="pill" data-g="shiny">✨</button>
+        <button class="pill" data-g="home">🏠</button>
+        <button class="pill" data-g="bw">🏹</button>
+        <button class="pill" data-g="transporter">📤</button>
+      </div>
+
+      <details class="gsearch-advanced">
+        <summary>詳細検索</summary>
+
+        <details class="gsearch-sub">
+          <summary>地方図鑑</summary>
+          <div class="gsearch-sub-body">
+            <div class="chip-group" id="region-chips">
+              <button class="chip on" data-region="all">すべての地方</button>
+              <button class="chip" data-region="shinou">シンオウ</button>
+              <button class="chip" data-region="isshu">イッシュ</button>
+              <button class="chip" data-region="kanto">カントー</button>
+              <button class="chip" data-region="jouto">ジョウト</button>
+            </div>
+            <div class="sample-note">※ プレビューにつき地方は一部のみ表示。本番では登録済みROMの世代に応じて自動で出し分けます。</div>
+          </div>
+        </details>
+
+        <details class="gsearch-sub">
+          <summary>保有ROM</summary>
+          <div class="gsearch-sub-body">
+            <div class="chip-group" id="rom-chips">
+              <button class="chip on" data-rom-filter="all">すべてのROM</button>
+              <!-- ここはユーザーが登録した手持ちROMの数だけ動的に生成される想定 -->
+            </div>
+            <div class="sample-note">※ サイドバーの「SOFTWARE LIST」に登録したROMが、ここに自動で並びます。</div>
+          </div>
+        </details>
+
+        <details class="gsearch-sub">
+          <summary>個体情報</summary>
+          <div class="gsearch-sub-body">
+            <div class="grid2">
+              <label class="field">親名（OT）<input placeholder="―"></label>
+              <label class="field">親ID<input placeholder="―"></label>
+              <label class="field full">
+                <div class="field-head">ポケルス<button class="invert-toggle" data-invert-for="pokerus" title="未所持で検索">⚠️</button></div>
+                <select id="search-pokerus"><option>―</option><option>感染中</option><option>治療済み</option></select>
+              </label>
+              <label class="field full">
+                <div class="field-head">ボール<button class="invert-toggle" data-invert-for="ball" title="未所持で検索">⚠️</button></div>
+                <select id="search-ball">
+                  <option>―</option><option>マスターボール</option><option>ハイパーボール</option><option>スーパーボール</option>
+                  <option>モンスターボール</option><option>サファリボール</option><option>ネットボール</option><option>ダイブボール</option>
+                  <option>ネストボール</option><option>リピートボール</option><option>タイマーボール</option><option>ゴージャスボール</option>
+                  <option>プレミアボール</option><option>ダークボール</option><option>ヒールボール</option><option>クイックボール</option>
+                  <option>プレシャスボール</option><option>パークボール</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </details>
+
+        <details class="gsearch-sub">
+          <div class="field-head"><summary style="flex:1">リボン・証</summary><button class="invert-toggle" data-invert-for="ribbon" title="未取得で検索" style="margin:7px 0">⚠️</button></div>
+          <div class="gsearch-sub-body">
+            <div class="chip-group" id="ribbon-search-chips">
+              <button class="chip" data-ribbon="シンオウチャンプリボン">🎀 シンオウチャンプリボン</button>
+              <button class="chip" data-ribbon="クールリボン">🎀 クールリボン</button>
+              <button class="chip" data-ribbon="クールリボングレート">🎀 クールリボングレート</button>
+              <button class="chip" data-ribbon="クールリボンウルトラ">🎀 クールリボンウルトラ</button>
+              <button class="chip" data-ribbon="クールリボンマスター">🎀 クールリボンマスター</button>
+              <button class="chip" data-ribbon="ビューティリボン">🎀 ビューティリボン</button>
+              <button class="chip" data-ribbon="ビューティリボングレート">🎀 ビューティリボングレート</button>
+              <button class="chip" data-ribbon="ビューティリボンウルトラ">🎀 ビューティリボンウルトラ</button>
+              <button class="chip" data-ribbon="ビューティリボンマスター">🎀 ビューティリボンマスター</button>
+              <button class="chip" data-ribbon="キュートリボン">🎀 キュートリボン</button>
+              <button class="chip" data-ribbon="キュートリボングレート">🎀 キュートリボングレート</button>
+              <button class="chip" data-ribbon="キュートリボンウルトラ">🎀 キュートリボンウルトラ</button>
+              <button class="chip" data-ribbon="キュートリボンマスター">🎀 キュートリボンマスター</button>
+              <button class="chip" data-ribbon="ジーニアスリボン">🎀 ジーニアスリボン</button>
+              <button class="chip" data-ribbon="ジーニアスリボングレート">🎀 ジーニアスリボングレート</button>
+              <button class="chip" data-ribbon="ジーニアスリボンウルトラ">🎀 ジーニアスリボンウルトラ</button>
+              <button class="chip" data-ribbon="ジーニアスリボンマスター">🎀 ジーニアスリボンマスター</button>
+              <button class="chip" data-ribbon="パワフルリボン">🎀 パワフルリボン</button>
+              <button class="chip" data-ribbon="パワフルリボングレート">🎀 パワフルリボングレート</button>
+              <button class="chip" data-ribbon="パワフルリボンウルトラ">🎀 パワフルリボンウルトラ</button>
+              <button class="chip" data-ribbon="パワフルリボンマスター">🎀 パワフルリボンマスター</button>
+              <button class="chip" data-ribbon="アビリティリボン">🎀 アビリティリボン</button>
+              <button class="chip" data-ribbon="グレートアビリティリボン">🎀 グレートアビリティリボン</button>
+              <button class="chip" data-ribbon="ダブルアビリティリボン">🎀 ダブルアビリティリボン</button>
+              <button class="chip" data-ribbon="マルチアビリティリボン">🎀 マルチアビリティリボン</button>
+              <button class="chip" data-ribbon="ペアアビリティリボン">🎀 ペアアビリティリボン</button>
+              <button class="chip" data-ribbon="ワールドアビリティリボン">🎀 ワールドアビリティリボン</button>
+              <button class="chip" data-ribbon="しゃっきリボン">🎀 しゃっきリボン</button>
+              <button class="chip" data-ribbon="どっきリボン">🎀 どっきリボン</button>
+              <button class="chip" data-ribbon="しょんぼリボン">🎀 しょんぼリボン</button>
+              <button class="chip" data-ribbon="うっかリボン">🎀 うっかリボン</button>
+              <button class="chip" data-ribbon="すっきリボン">🎀 すっきリボン</button>
+              <button class="chip" data-ribbon="ぐっすリボン">🎀 ぐっすリボン</button>
+              <button class="chip" data-ribbon="にっこリボン">🎀 にっこリボン</button>
+              <button class="chip" data-ribbon="ゴージャスリボン">🎀 ゴージャスリボン</button>
+              <button class="chip" data-ribbon="ロイヤルリボン">🎀 ロイヤルリボン</button>
+              <button class="chip" data-ribbon="ゴージャスロイヤルリボン">🎀 ゴージャスロイヤルリボン</button>
+              <button class="chip" data-ribbon="あしあとリボン">🎀 あしあとリボン</button>
+              <button class="chip" data-ribbon="がんばリボン">🎀 がんばリボン</button>
+            </div>
+          </div>
+        </details>
+      </details>
+    </section>
+    <div class="section" style="padding-bottom:7px">
+      <div class="kicker" style="margin:0">RESULTS</div>
+    </div>
+    <div id="global-results"></div>
+  </aside>
+
+  <main class="main">
+    <section class="rom-head">
+      <div class="rom-name-wrap">
+        <h1 class="rom-name" id="rom-title">ダイヤモンド①</h1>
+        <button class="pencil" id="edit-title" aria-label="表示名を変更">✏️</button>
+      </div>
+      <div class="counter"><b>0</b>/493種<br><b>0</b>匹 · 重複 <b>0</b></div>
+    </section>
+
+    <div class="filters" id="quick-filters">
+      <button class="filter active" data-f="all">すべて</button>
+      <button class="filter" data-f="owned">✅</button>
+      <button class="filter" data-f="absent">➖</button>
+      <button class="filter" data-f="favorite">🩷</button>
+      <button class="filter" data-f="shiny">✨</button>
+      <button class="filter" data-f="home">🏠</button>
+    </div>
+
+    <div class="focusbar" id="focusbar"><span id="focus-label">🔍 表示中</span><button id="clear-focus">×</button></div>
+
+    <div class="migration-help">🏹 BWへ移送　／　📤 ポケムーバー通過</div>
+
+    <div id="regional-dex-container"></div>
+
+    <details class="national-dex">
+      <summary>全国図鑑<span class="count" style="margin-left:6px" id="national-count"></span></summary>
+      <div class="dex-head"><span>🩷</span><span>No.</span><span>ポケモン</span><span>所持</span><span>色</span><span>HOME</span><span class="transfer-head">🏹</span><span class="transfer-head">📤</span><span></span></div>
+      <section id="dex-national"></section>
+    </details>
+  </main>
+</div>
+
+<div class="sheet" id="edit-sheet">
+  <div class="sheet-card">
+    <div class="sheet-head"><strong>表示名</strong><button id="edit-close">×</button></div>
+    <div class="sheet-body">
+      <label class="field">このソフトの表示名<input id="edit-name-input" value="ダイヤモンド①" maxlength="40"></label>
+      <div class="note" style="margin-top:7px">ダイヤモンド① / ダイヤモンド1️⃣ / ダイヤモンド🤍 / 周回用 / リセット済み など自由入力。</div>
+      <div class="actions"><button id="edit-cancel">やめる</button><button class="primary" id="edit-save">保存</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="add-rom-sheet">
+  <div class="sheet-card">
+    <div class="sheet-head"><strong>ソフトを追加</strong><button id="add-rom-close">×</button></div>
+    <div class="sheet-body">
+      <label class="field">作品
+        <select id="add-rom-base">
+          <option value="ダイヤモンド">ダイヤモンド</option>
+          <option value="パール">パール</option>
+          <option value="プラチナ">プラチナ</option>
+          <option value="ハートゴールド">ハートゴールド</option>
+          <option value="ソウルシルバー">ソウルシルバー</option>
+          <option value="ブラック">ブラック</option>
+          <option value="ホワイト">ホワイト</option>
+          <option value="ブラック2">ブラック2</option>
+          <option value="ホワイト2">ホワイト2</option>
+          <option value="X">X</option>
+          <option value="Y">Y</option>
+          <option value="オメガルビー">オメガルビー</option>
+          <option value="アルファサファイア">アルファサファイア</option>
+          <option value="サン">サン</option>
+          <option value="ムーン">ムーン</option>
+          <option value="ウルトラサン">ウルトラサン</option>
+          <option value="ウルトラムーン">ウルトラムーン</option>
+        </select>
+      </label>
+      <label class="field" style="margin-top:9px">表示名<input id="add-rom-name" placeholder="例：パール① / 周回用" maxlength="40"></label>
+      <div class="note" style="margin-top:7px">同じ作品を複数登録できます。表示名は後からいつでも変更できます。</div>
+      <div class="actions"><button id="add-rom-cancel">やめる</button><button class="primary" id="add-rom-save">追加する</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="ribbon-sheet">
+  <div class="sheet-card">
+    <div class="sheet-head"><strong>リボンを選択</strong><button id="ribbon-sheet-close">×</button></div>
+    <div class="ribbon-sheet-body">
+      <div class="ribbon-search-box"><input id="ribbon-search-input" placeholder="リボン名で検索"></div>
+      <div class="ribbon-list" id="ribbon-list"></div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="backup-sheet">
+  <div class="sheet-card">
+    <div class="sheet-head"><strong>書き出し・読み込み</strong><button class="sheet-x">×</button></div>
+    <div class="sheet-body">
+      <div class="backup-block">
+        <div class="backup-block-title">書き出す</div>
+        <p class="note">保存している全ROM・全図鑑データ・周回メモをまとめて出力します。</p>
+        <div class="backup-btn-grid">
+          <button class="backup-export-btn" data-format="json">📦 JSON<small>完全バックアップ用</small></button>
+          <button class="backup-export-btn" data-format="txt">📄 TXT<small>簡易サマリー</small></button>
+          <button class="backup-export-btn" data-format="md">📝 MD<small>整形レポート</small></button>
+          <button class="backup-export-btn" data-format="csv">📊 CSV<small>表計算ソフト用</small></button>
+        </div>
+      </div>
+      <div class="backup-block">
+        <div class="backup-block-title">読み込む</div>
+        <p class="note">JSON形式のバックアップファイルから復元します。<b>現在保存されている内容は上書きされます。</b></p>
+        <input type="file" id="backup-import-file" accept="application/json,.json" style="display:none">
+        <button class="backup-import-btn" id="backup-import-btn">📂 JSONファイルを選んで読み込む</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+  function closeDrawers(){ $('#drawer-none').checked=true; }
+
+  const NATURES = ["がんばりや","さみしがり","いじっぱり","やんちゃ","ゆうかん","ずぶとい","すなお","わんぱく","のうてんき","のんき","ひかえめ","おっとり","てれや","うっかりや","れいせい","おだやか","おとなしい","しんちょう","きまぐれ","なまいき","おくびょう","せっかち","ようき","むじゃき","まじめ"];
+  const LANGUAGES = ["日本語","英語","フランス語","ドイツ語","イタリア語","スペイン語","韓国語"];
+  const BALLS = ["マスターボール","ハイパーボール","スーパーボール","モンスターボール","サファリボール","ネットボール","ダイブボール","ネストボール","リピートボール","タイマーボール","ゴージャスボール","プレミアボール","ダークボール","ヒールボール","クイックボール","プレシャスボール","パークボール"];
+  const RIBBONS = ["シンオウチャンプリボン","クールリボン","クールリボングレート","クールリボンウルトラ","クールリボンマスター","ビューティリボン","ビューティリボングレート","ビューティリボンウルトラ","ビューティリボンマスター","キュートリボン","キュートリボングレート","キュートリボンウルトラ","キュートリボンマスター","ジーニアスリボン","ジーニアスリボングレート","ジーニアスリボンウルトラ","ジーニアスリボンマスター","パワフルリボン","パワフルリボングレート","パワフルリボンウルトラ","パワフルリボンマスター","アビリティリボン","グレートアビリティリボン","ダブルアビリティリボン","マルチアビリティリボン","ペアアビリティリボン","ワールドアビリティリボン","しゃっきリボン","どっきリボン","しょんぼリボン","うっかリボン","すっきリボン","ぐっすリボン","にっこリボン","ゴージャスリボン","ロイヤルリボン","ゴージャスロイヤルリボン","あしあとリボン","がんばリボン"];
+
+  function opts(arr){ return arr.map(v=>`<option>${v}</option>`).join(''); }
+
+  // ===== IndexedDB =====
+  const DB_NAME = 'gohome_cherish_db';
+  const DB_VERSION = 1;
+  const STORE_NAME = 'kv'; // シンプルなキー・バリューストア
+  let dbPromise = null;
+
+  function openDb(){
+    if(dbPromise) return dbPromise;
+    dbPromise = new Promise((resolve, reject)=>{
+      if(!window.indexedDB){
+        reject(new Error('IndexedDB非対応のブラウザです'));
+        return;
+      }
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = (e)=>{
+        const db = e.target.result;
+        if(!db.objectStoreNames.contains(STORE_NAME)){
+          db.createObjectStore(STORE_NAME);
+        }
+      };
+      req.onsuccess = (e)=> resolve(e.target.result);
+      req.onerror = (e)=> reject(e.target.error);
+    });
+    return dbPromise;
+  }
+  async function idbSet(key, value){
+    try{
+      const db = await openDb();
+      return new Promise((resolve, reject)=>{
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put(value, key);
+        tx.oncomplete = ()=> resolve(true);
+        tx.onerror = (e)=> reject(e.target.error);
+      });
+    }catch(err){
+      console.error('idbSet失敗', key, err);
+      return false;
+    }
+  }
+  async function idbGet(key){
+    try{
+      const db = await openDb();
+      return new Promise((resolve, reject)=>{
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const req = tx.objectStore(STORE_NAME).get(key);
+        req.onsuccess = ()=> resolve(req.result);
+        req.onerror = (e)=> reject(e.target.error);
+      });
+    }catch(err){
+      console.error('idbGet失敗', key, err);
+      return undefined;
+    }
+  }
+  async function idbDelete(key){
+    try{
+      const db = await openDb();
+      return new Promise((resolve, reject)=>{
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).delete(key);
+        tx.oncomplete = ()=> resolve(true);
+        tx.onerror = (e)=> reject(e.target.error);
+      });
+    }catch(err){
+      console.error('idbDelete失敗', key, err);
+      return false;
+    }
+  }
+  // 短時間の連続呼び出しをまとめて1回の保存にする(高頻度なトグル操作対策)
+  function debounce(fn, wait){
+    let timer=null;
+    return (...args)=>{
+      clearTimeout(timer);
+      timer=setTimeout(()=>fn(...args), wait);
+    };
+  }
+
+  // SOFTWARE LIST(ROM構成)の保存・復元
+  async function saveRomList(){
+    const roms = $$('#rom-list .rom').map(btn=>({
+      romId: btn.dataset.romId,
+      name: btn.dataset.rom,
+      base: btn.dataset.base,
+      active: btn.classList.contains('active')
+    }));
+    await idbSet('romList', roms);
+  }
+  const saveRomListDebounced = debounce(saveRomList, 400);
+
+  async function restoreRomList(){
+    const saved = await idbGet('romList');
+    if(!saved || !saved.length) return false;
+    const romListEl = $('#rom-list');
+    romListEl.innerHTML = '';
+    saved.forEach(r=>{
+      const btn=document.createElement('button');
+      btn.className='rom'+(r.active?' active':'');
+      btn.dataset.romId=r.romId; btn.dataset.rom=r.name; btn.dataset.base=r.base;
+      btn.innerHTML=romInnerHtml(r.name, r.base);
+      romListEl.appendChild(btn);
+    });
+    return true;
+  }
+
+
+  // 詳細フォーム(6グループ)のテンプレート。全種共通、開いたときだけ組み立てる。
+  function detailGroupsHtml(){
+    return `
+      <details class="dgroup" open><summary>基本</summary><div class="detail-grid3">
+        <label class="field">ニックネーム<input placeholder="―"></label>
+        <label class="field">性別<select><option>―</option><option>♂</option><option>♀</option><option>不明</option></select></label>
+        <label class="field">性格<select><option>―</option>${opts(NATURES)}</select></label>
+        <label class="field">特性<input placeholder="―"></label>
+        <label class="field">レベル<input placeholder="―"></label>
+        <label class="field">ボール<select><option>―</option>${opts(currentDexData.ballOptions || BALLS)}</select></label>
+        <label class="field">フォーム<input placeholder="― （例：すなのミノ、ごみのミノ）"></label>
+      </div></details>
+      <details class="dgroup"><summary>親・出会い</summary><div class="detail-grid3">
+        <label class="field">OT<input placeholder="―"></label>
+        <label class="field">ID<input placeholder="―"></label>
+        <label class="field">場所<input placeholder="―"></label>
+        <label class="field">出会ったレベル<input placeholder="―"></label>
+        <label class="field">日付<input type="date"></label>
+        <label class="field">言語<select><option>―</option>${opts(LANGUAGES)}</select></label>
+      </div></details>
+      <details class="dgroup"><summary>能力・技</summary><div class="detail-grid3">
+        <label class="field">IV<input placeholder="―"></label>
+        <label class="field">EV<input placeholder="―"></label>
+        <label class="field">技1<input placeholder="―"></label>
+        <label class="field">技2<input placeholder="―"></label>
+        <label class="field">技3<input placeholder="―"></label>
+        <label class="field">技4<input placeholder="―"></label>
+      </div></details>
+      <details class="dgroup"><summary>リボン</summary>
+        <button class="ribbon-picker-btn" type="button">
+          <span>🎀 リボンを選択</span><span class="count"></span>
+        </button>
+        <div class="ribbon-selected-list"></div>
+      </details>
+      <details class="dgroup"><summary>その他</summary><div class="detail-grid3">
+        <label class="field">マーキング<input placeholder="―"></label>
+        <label class="field">ポケルス<select><option>―</option><option>感染中</option><option>治療済み</option></select></label>
+      </div></details>
+      <details class="dgroup"><summary>メモ</summary><label class="field full"><textarea rows="2" placeholder="メモ"></textarea></label></details>
+    `;
+  }
+
+  function dexRowHtml(no, name, transferCols){
+    const transferBtns = transferCols ? `
+      <button class="cellbtn transfer-toggle route-off" data-icon="🏹" title="BWへ移送">☑️</button>
+      <button class="cellbtn transfer-toggle route-off" data-icon="📤" title="ポケムーバー通過">☑️</button>
+    ` : '';
+    return `
+      <div class="dex-row">
+        <button class="cellbtn fav-lead off">☑️</button>
+        <span class="no">${no}</span><span class="pname">${name}</span>
+        <button class="cellbtn status">➖</button>
+        <button class="cellbtn off">☑️</button>
+        <button class="cellbtn off">☑️</button>
+        ${transferBtns}
+        <button class="cellbtn expand">👇</button>
+      </div>`;
+  }
+
+  function detailsHtml(){
+    return `<div class="details">
+      <div class="individuals"><button class="individual active" data-indiv="1">1</button><button class="individual add-individual">＋</button></div>
+      <div class="indiv-group active" data-indiv="1">${detailGroupsHtml()}</div>
+    </div>`;
+  }
+
+  function buildDexItem(no, name, transferCols){
+    const article=document.createElement('article');
+    article.className='dex-item';
+    article.dataset.no=no; article.dataset.name=name;
+    article.dataset.status='absent'; article.dataset.favorite='0'; article.dataset.shiny='0'; article.dataset.home='0';
+    article.innerHTML = dexRowHtml(no,name,transferCols) + '<div class="details-slot"></div>';
+    return article;
+  }
+
+  // ===== 図鑑1種分の状態の抽出・復元 =====
+  function extractIndivGroupState(groupEl){
+    const state = { indiv: groupEl.dataset.indiv };
+    groupEl.querySelectorAll('input').forEach(inp=>{
+      const label = inp.closest('label.field');
+      const key = label ? label.childNodes[0].textContent.trim() : inp.type;
+      state[key] = inp.value;
+    });
+    groupEl.querySelectorAll('select').forEach(sel=>{
+      const label = sel.closest('label.field');
+      const key = label ? label.childNodes[0].textContent.trim() : 'select';
+      state[key] = sel.value;
+    });
+    groupEl.querySelectorAll('textarea').forEach(ta=>{
+      state['メモ'] = ta.value;
+    });
+    const ribbonBtn = groupEl.querySelector('.ribbon-picker-btn');
+    if(ribbonBtn){
+      state['リボン'] = JSON.parse(ribbonBtn.dataset.selected || '[]');
+    }
+    return state;
+  }
+
+  function extractDexItemState(item){
+    const row = item.querySelector('.dex-row');
+    const cellBtns = Array.from(row.querySelectorAll('.cellbtn'));
+    const state = {
+      status: item.dataset.status,
+      favorite: item.dataset.favorite,
+      shiny: item.dataset.shiny,
+      home: item.dataset.home,
+      transfers: {}
+    };
+    row.querySelectorAll('.transfer-toggle').forEach(btn=>{
+      state.transfers[btn.dataset.icon] = !btn.classList.contains('route-off');
+    });
+    const detailsEl = item.querySelector('.details');
+    if(detailsEl){
+      state.individuals = [];
+      detailsEl.querySelectorAll('.indiv-group').forEach(g=>{
+        state.individuals.push(extractIndivGroupState(g));
+      });
+      const activeTab = detailsEl.querySelector('.individual.active');
+      state.activeIndiv = activeTab ? activeTab.dataset.indiv : '1';
+    }
+    return state;
+  }
+
+  function applyIndivGroupState(groupEl, state){
+    if(!state) return;
+    groupEl.querySelectorAll('input').forEach(inp=>{
+      const label = inp.closest('label.field');
+      const key = label ? label.childNodes[0].textContent.trim() : inp.type;
+      if(state[key]!==undefined) inp.value = state[key];
+    });
+    groupEl.querySelectorAll('select').forEach(sel=>{
+      const label = sel.closest('label.field');
+      const key = label ? label.childNodes[0].textContent.trim() : 'select';
+      if(state[key]!==undefined) sel.value = state[key];
+    });
+    groupEl.querySelectorAll('textarea').forEach(ta=>{
+      if(state['メモ']!==undefined) ta.value = state['メモ'];
+    });
+    const ribbonBtn = groupEl.querySelector('.ribbon-picker-btn');
+    if(ribbonBtn && state['リボン']){
+      ribbonBtn.dataset.selected = JSON.stringify(state['リボン']);
+      updateRibbonCount(ribbonBtn);
+    }
+  }
+
+  function applyDexItemState(item, state){
+    if(!state) return;
+    item.dataset.status = state.status || 'absent';
+    item.dataset.favorite = state.favorite || '0';
+    item.dataset.shiny = state.shiny || '0';
+    item.dataset.home = state.home || '0';
+    const row = item.querySelector('.dex-row');
+    const statusBtn = row.querySelector('.status');
+    statusBtn.textContent = item.dataset.status==='owned' ? '✅' : '➖';
+    statusBtn.classList.toggle('absent', item.dataset.status!=='owned');
+    const favBtn = row.querySelector('.fav-lead');
+    favBtn.classList.toggle('off', item.dataset.favorite!=='1');
+    const cellBtns = Array.from(row.querySelectorAll('.cellbtn'));
+    // idx2=shiny idx3=home (dex-row構成: 0=fav-lead 1=status 2=shiny 3=home ...)
+    if(cellBtns[2]){
+      const on = item.dataset.shiny==='1';
+      cellBtns[2].classList.toggle('off', !on);
+      cellBtns[2].textContent = on ? '✨' : '☑️';
+    }
+    if(cellBtns[3]){
+      const on = item.dataset.home==='1';
+      cellBtns[3].classList.toggle('off', !on);
+      cellBtns[3].textContent = on ? '🏠' : '☑️';
+    }
+    row.querySelectorAll('.transfer-toggle').forEach(btn=>{
+      const on = state.transfers && state.transfers[btn.dataset.icon];
+      btn.classList.toggle('route-off', !on);
+      btn.textContent = on ? btn.dataset.icon : '☑️';
+    });
+    // 個体詳細は、状態があれば詳細フォームを事前に構築して復元する
+    if(state.individuals && state.individuals.length){
+      const slot = item.querySelector('.details-slot');
+      if(slot.children.length===0){ slot.innerHTML = detailsHtml(); }
+      const detailsEl = item.querySelector('.details');
+      // 2体目以降が保存されている場合はタブを追加生成
+      while(detailsEl.querySelectorAll('.indiv-group').length < state.individuals.length){
+        addIndividual(detailsEl);
+      }
+      const groups = detailsEl.querySelectorAll('.indiv-group');
+      state.individuals.forEach((indivState, i)=>{
+        if(groups[i]) applyIndivGroupState(groups[i], indivState);
+      });
+      if(state.activeIndiv) switchIndividual(detailsEl, state.activeIndiv);
+    }
+  }
+
+
+  // 現在のROM図鑑データ
+  let currentDexData = null;
+  let currentRomId = null; // 表示中ROMのdata-rom-id
+  const TRANSFER_COLS = true; // pre_BW世代: 🏹📤あり
+
+  async function loadGameData(gameId){
+    try{
+      const res = await fetch(`data/${gameId}.json`);
+      if(!res.ok) throw new Error('fetch failed: '+res.status);
+      currentDexData = await res.json();
+      renderDex();
+      await restoreDexState();
+    }catch(err){
+      console.error('図鑑データの読み込みに失敗しました', err);
+      $('#dex').innerHTML = '<div class="note" style="padding:14px">図鑑データを読み込めませんでした。data/フォルダの設置状況をご確認ください。</div>';
+    }
+  }
+
+  // 現在表示中の全.dex-itemの状態を、現在のROM IDで保存する
+  async function saveDexState(){
+    if(!currentRomId) return;
+    const items = $$('#regional-dex-container .dex-item, #dex-national .dex-item');
+    const stateMap = {};
+    items.forEach(item=>{
+      stateMap[item.dataset.no] = extractDexItemState(item);
+    });
+    await idbSet('dexState:'+currentRomId, stateMap);
+  }
+  const saveDexStateDebounced = debounce(saveDexState, 600);
+
+  // 現在のROM IDの保存済み状態を、今表示している図鑑に反映する
+  async function restoreDexState(){
+    if(!currentRomId) return;
+    const stateMap = await idbGet('dexState:'+currentRomId);
+    if(!stateMap) return;
+    const items = $$('#regional-dex-container .dex-item, #dex-national .dex-item');
+    items.forEach(item=>{
+      const state = stateMap[item.dataset.no];
+      if(state) applyDexItemState(item, state);
+    });
+    updateCounter();
+  }
+
+  function renderDex(){
+    const container = $('#regional-dex-container');
+    container.innerHTML = '';
+
+    if(currentDexData.multiRegionalDex){
+      // XYなど: 複数の独立した地方図鑑を持つソフト
+      currentDexData.regionalDexGroups.forEach((group, idx)=>{
+        const head = document.createElement('div');
+        head.className='dex-section-head';
+        head.innerHTML = `${group.groupName}<span class="count">1〜${group.dex.length}</span>`;
+        const dexHead = document.createElement('div');
+        dexHead.className='dex-head';
+        dexHead.innerHTML = `<span>🩷</span><span>No.</span><span>ポケモン</span><span>所持</span><span>色</span><span>HOME</span><span class="transfer-head">🏹</span><span class="transfer-head">📤</span><span></span>`;
+        const section = document.createElement('section');
+        section.id = `dex-group-${idx}`;
+        section.className = 'dex-group-section';
+        const frag = document.createDocumentFragment();
+        group.dex.forEach(sp=>{
+          const no=String(sp.localNo).padStart(3,'0');
+          frag.appendChild(buildDexItem(no, sp.nameJa, TRANSFER_COLS));
+        });
+        section.appendChild(frag);
+        container.appendChild(head);
+        container.appendChild(dexHead);
+        container.appendChild(section);
+      });
+    } else {
+      // 通常: 単一の地方図鑑
+      const head = document.createElement('div');
+      head.className='dex-section-head';
+      head.innerHTML = `${currentDexData.regionalDexName}<span class="count">1〜${currentDexData.regionalDex.length}</span>`;
+      const dexHead = document.createElement('div');
+      dexHead.className='dex-head';
+      dexHead.innerHTML = `<span>🩷</span><span>No.</span><span>ポケモン</span><span>所持</span><span>色</span><span>HOME</span><span class="transfer-head">🏹</span><span class="transfer-head">📤</span><span></span>`;
+      const section = document.createElement('section');
+      section.id = 'dex';
+      const frag = document.createDocumentFragment();
+      currentDexData.regionalDex.forEach(sp=>{
+        const no=String(sp.localNo).padStart(3,'0');
+        frag.appendChild(buildDexItem(no, sp.nameJa, TRANSFER_COLS));
+      });
+      section.appendChild(frag);
+      container.appendChild(head);
+      container.appendChild(dexHead);
+      container.appendChild(section);
+    }
+
+    const natWrap = $('#dex-national');
+    natWrap.innerHTML='';
+    const frag2=document.createDocumentFragment();
+    currentDexData.nationalOnly.forEach(sp=>{
+      const no=String(sp.nationalNo).padStart(3,'0');
+      frag2.appendChild(buildDexItem(no, sp.nameJa, TRANSFER_COLS));
+    });
+    natWrap.appendChild(frag2);
+    const natCount = $('#national-count');
+    if(natCount) natCount.textContent = `${currentDexData.nationalOnly.length}種`;
+
+    updateCounter();
+  }
+
+  function updateCounter(){
+    const all = $$('#regional-dex-container .dex-item, #dex-national .dex-item');
+    const owned = all.filter(i=>i.dataset.status==='owned');
+    const counterEl = $('.counter');
+    if(counterEl){
+      counterEl.innerHTML = `<b>${owned.length}</b>/${all.length}種<br><b>${owned.length}</b>匹 · 重複 <b>0</b>`;
+    }
+  }
+
+  // 個体タブ切替
+  function switchIndividual(detailsEl, no){
+    detailsEl.querySelectorAll('.individual:not(.add-individual)').forEach(b=>b.classList.toggle('active', b.dataset.indiv===String(no)));
+    detailsEl.querySelectorAll('.indiv-group').forEach(g=>g.classList.toggle('active', g.dataset.indiv===String(no)));
+  }
+
+  // リボン選択ポップアップ
+  let activeRibbonBtn = null;
+  function updateRibbonCount(btn){
+    if(!btn) return;
+    const selected = JSON.parse(btn.dataset.selected || '[]');
+    const countEl = btn.querySelector('.count');
+    if(countEl) countEl.textContent = selected.length ? `${selected.length}個選択中` : '';
+    const listEl = btn.closest('.dgroup').querySelector('.ribbon-selected-list');
+    if(listEl){
+      listEl.innerHTML = selected.map(r=>`<span class="ribbon-selected-chip">🎀 ${r}</span>`).join('');
+    }
+  }
+  function renderRibbonList(query){
+    if(!activeRibbonBtn) return;
+    const ribbonListEl = $('#ribbon-list');
+    const options = (currentDexData && currentDexData.ribbonOptions) || [];
+    const selected = new Set(JSON.parse(activeRibbonBtn.dataset.selected || '[]'));
+    const q = (query||'').trim();
+    const filtered = q ? options.filter(r=>r.includes(q)) : options;
+    ribbonListEl.innerHTML = filtered.map(r=>`
+      <div class="ribbon-list-item ${selected.has(r)?'on':''}" data-ribbon="${r}">
+        <span class="check">${selected.has(r)?'✓':''}</span><span>${r}</span>
+      </div>
+    `).join('');
+  }
+  function openRibbonSheet(btn){
+    activeRibbonBtn = btn;
+    if(!btn.dataset.selected) btn.dataset.selected = '[]';
+    $('#ribbon-search-input').value = '';
+    renderRibbonList('');
+    $('#ribbon-sheet').classList.add('show');
+  }
+  function closeRibbonSheet(){
+    $('#ribbon-sheet').classList.remove('show');
+    if(activeRibbonBtn) updateRibbonCount(activeRibbonBtn);
+    activeRibbonBtn = null;
+  }
+  $('#ribbon-sheet-close').onclick = closeRibbonSheet;
+  $('#ribbon-sheet').addEventListener('click', e=>{ if(e.target.id==='ribbon-sheet') closeRibbonSheet(); });
+  $('#ribbon-search-input').addEventListener('input', e=>renderRibbonList(e.target.value));
+  $('#ribbon-list').addEventListener('click', e=>{
+    const item = e.target.closest('.ribbon-list-item');
+    if(!item || !activeRibbonBtn) return;
+    const ribbon = item.dataset.ribbon;
+    const selected = JSON.parse(activeRibbonBtn.dataset.selected || '[]');
+    const idx = selected.indexOf(ribbon);
+    if(idx>=0) selected.splice(idx,1); else selected.push(ribbon);
+    activeRibbonBtn.dataset.selected = JSON.stringify(selected);
+    item.classList.toggle('on');
+    item.querySelector('.check').textContent = item.classList.contains('on') ? '✓' : '';
+    saveDexStateDebounced();
+  });
+
+  function addIndividual(detailsEl){
+    const existing=detailsEl.querySelectorAll('.individual:not(.add-individual)');
+    const nextNo=existing.length+1;
+    const baseGroup=detailsEl.querySelector('.indiv-group[data-indiv="1"]');
+    const newGroup=baseGroup.cloneNode(true);
+    newGroup.dataset.indiv=String(nextNo);
+    newGroup.classList.remove('active');
+    newGroup.querySelectorAll('input').forEach(i=>i.value='');
+    newGroup.querySelectorAll('select').forEach(s=>s.selectedIndex=0);
+    newGroup.querySelectorAll('textarea').forEach(t=>t.value='');
+    const ribbonBtn = newGroup.querySelector('.ribbon-picker-btn');
+    if(ribbonBtn){ ribbonBtn.dataset.selected='[]'; }
+    const ribbonList = newGroup.querySelector('.ribbon-selected-list');
+    if(ribbonList){ ribbonList.innerHTML=''; }
+    updateRibbonCount(ribbonBtn);
+    const addBtn=detailsEl.querySelector('.add-individual');
+    const tab=document.createElement('button');
+    tab.className='individual'; tab.dataset.indiv=String(nextNo); tab.textContent=String(nextNo);
+    detailsEl.querySelector('.individuals').insertBefore(tab, addBtn);
+    baseGroup.insertAdjacentElement('afterend', newGroup);
+    switchIndividual(detailsEl, nextNo);
+  }
+
+  // 図鑑一覧へのイベント委譲(動的生成された行にも常に効く)
+  function bindDexEvents(container){
+    container.addEventListener('click', e=>{
+      const expandBtn = e.target.closest('.expand');
+      if(expandBtn){
+        const item = expandBtn.closest('.dex-item');
+        const slot = item.querySelector('.details-slot');
+        if(!item.classList.contains('open')){
+          if(slot.children.length===0){ slot.innerHTML = detailsHtml(); }
+        }
+        item.classList.toggle('open');
+        return;
+      }
+      const statusBtn = e.target.closest('.status');
+      if(statusBtn){
+        const item = statusBtn.closest('.dex-item');
+        const cur = statusBtn.textContent.trim();
+        const next = cur==='✅' ? '➖' : '✅';
+        statusBtn.textContent = next;
+        item.dataset.status = next==='✅' ? 'owned' : 'absent';
+        statusBtn.classList.toggle('absent', next==='➖');
+        updateCounter();
+        saveDexStateDebounced();
+        return;
+      }
+      const addIndivBtn = e.target.closest('.add-individual');
+      if(addIndivBtn){
+        addIndividual(addIndivBtn.closest('.details'));
+        saveDexStateDebounced();
+        return;
+      }
+      const indivTab = e.target.closest('.individual:not(.add-individual)');
+      if(indivTab){
+        switchIndividual(indivTab.closest('.details'), indivTab.dataset.indiv);
+        saveDexStateDebounced();
+        return;
+      }
+      const ribbonBtn = e.target.closest('.ribbon-picker-btn');
+      if(ribbonBtn){
+        openRibbonSheet(ribbonBtn);
+        return;
+      }
+      const favBtn = e.target.closest('.fav-lead');
+      if(favBtn){
+        favBtn.classList.toggle('off');
+        const item = favBtn.closest('.dex-item');
+        item.dataset.favorite = favBtn.classList.contains('off') ? '0' : '1';
+        saveDexStateDebounced();
+        return;
+      }
+      const transferBtn = e.target.closest('.transfer-toggle');
+      if(transferBtn){
+        transferBtn.classList.toggle('route-off');
+        const isOn = !transferBtn.classList.contains('route-off');
+        transferBtn.textContent = isOn ? transferBtn.dataset.icon : '☑️';
+        saveDexStateDebounced();
+        return;
+      }
+      // 色違い(✨)・HOME対象(🏠)の列。dex-row内の並び順(0:fav-lead 1:status 2:shiny 3:home ...)で判定する。
+      const clickedCell = e.target.closest('.cellbtn');
+      if(clickedCell && !clickedCell.classList.contains('status') && !clickedCell.classList.contains('expand')){
+        const row = clickedCell.closest('.dex-row');
+        const cellBtns = Array.from(row.querySelectorAll('.cellbtn'));
+        const idx = cellBtns.indexOf(clickedCell);
+        if(idx===2 || idx===3){
+          const item = clickedCell.closest('.dex-item');
+          clickedCell.classList.toggle('off');
+          const on = !clickedCell.classList.contains('off');
+          clickedCell.textContent = idx===2 ? (on?'✨':'☑️') : (on?'🏠':'☑️');
+          if(idx===2) item.dataset.shiny = on ? '1':'0';
+          if(idx===3) item.dataset.home = on ? '1':'0';
+          saveDexStateDebounced();
+          return;
+        }
+      }
+    });
+    // 個体詳細フォームのテキスト入力・選択変更も保存対象にする
+    container.addEventListener('input', e=>{
+      if(e.target.closest('.indiv-group')) saveDexStateDebounced();
+    });
+    container.addEventListener('change', e=>{
+      if(e.target.closest('.indiv-group')) saveDexStateDebounced();
+    });
+  }
+  bindDexEvents($('.main'));
+
+  // Editable software display name.
+  const sheet=$('#edit-sheet'), title=$('#rom-title'), sideName=$('#side-current-name'), sideInput=$('#side-display-name'), editInput=$('#edit-name-input');
+  $('#edit-title').addEventListener('click',()=>{editInput.value=title.textContent;sheet.classList.add('show');setTimeout(()=>{editInput.focus();editInput.select()},50)});
+  function closeEdit(){sheet.classList.remove('show')}
+  $('#edit-close').onclick=closeEdit; $('#edit-cancel').onclick=closeEdit;
+  $('#edit-save').onclick=()=>{
+    const v=editInput.value.trim()||'ダイヤモンド';
+    title.textContent=v;sideName.textContent=v;sideInput.value=v;
+    // SOFTWARE LIST側の表示名・チップも同期させる
+    const activeRomBtn = $('#rom-list .rom.active');
+    if(activeRomBtn){
+      activeRomBtn.dataset.rom=v;
+      const strongEl = activeRomBtn.querySelector('strong');
+      if(strongEl) strongEl.textContent=v;
+      syncRomChips();
+      saveRomListDebounced();
+    }
+    closeEdit();toast('表示名を変更しました')
+  };
+  sideInput.addEventListener('input',()=>{const v=sideInput.value||$('#side-current-base').textContent;title.textContent=v;sideName.textContent=v});
+  sheet.addEventListener('click',e=>{if(e.target===sheet)closeEdit()});
+
+  // ROM switching (event delegation)。ROM切替時に対応するdata/○○.jsonを読み込む
+  const GAME_ID_MAP = {
+    'ダイヤモンド':'diamond','パール':'pearl','プラチナ':'platinum',
+    'ハートゴールド':'heartgold','ソウルシルバー':'soulsilver',
+    'ブラック':'black','ホワイト':'white','ブラック2':'black2','ホワイト2':'white2',
+    'X':'x','Y':'y','オメガルビー':'omega-ruby','アルファサファイア':'alpha-sapphire',
+    'サン':'sun','ムーン':'moon','ウルトラサン':'ultra-sun','ウルトラムーン':'ultra-moon'
+  };
+  const MULTI_DEX_GAMES = new Set(['x','y']); // 複数地方図鑑を持つソフト
+  let romEditing = false;
+  const romList = $('#rom-list');
+  romList.addEventListener('click', e=>{
+    if(romEditing) return;
+    const btn = e.target.closest('.rom');
+    if(!btn) return;
+    saveDexState(); // 切り替え前の状態を保存
+    $$('.rom').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+    const name=btn.dataset.rom, base=btn.dataset.base;
+    currentRomId = btn.dataset.romId;
+    title.textContent=name; sideName.textContent=name; $('#side-current-base').textContent=base; sideInput.value=name;
+    closeDrawers(); toast(name+' に切り替えました');
+    const gameId = GAME_ID_MAP[base];
+    if(gameId) loadGameData(gameId);
+  });
+
+  // ソフト追加
+  const addSheet=$('#add-rom-sheet'), addBaseSelect=$('#add-rom-base'), addNameInput=$('#add-rom-name');
+  function closeAddSheet(){addSheet.classList.remove('show')}
+  $('#add-rom').addEventListener('click',()=>{addNameInput.value='';addSheet.classList.add('show');setTimeout(()=>addNameInput.focus(),50)});
+  $('#add-rom-close').onclick=closeAddSheet; $('#add-rom-cancel').onclick=closeAddSheet;
+  addSheet.addEventListener('click',e=>{if(e.target===addSheet)closeAddSheet()});
+  function romInnerHtml(name, base){
+    return `<span><strong>${name}</strong><small>${base}</small></span>
+      <span class="arrow">›</span>
+      <span class="rom-edit-controls">
+        <button type="button" class="rom-up">↑</button>
+        <button type="button" class="rom-down">↓</button>
+        <button type="button" class="rom-delete">🗑</button>
+      </span>`;
+  }
+  // 初期表示のROMボタンにも編集コントロールを付与
+  $$('#rom-list .rom').forEach(btn=>{
+    btn.innerHTML = romInnerHtml(btn.dataset.rom, btn.dataset.base);
+  });
+
+  // ROM編集モード(削除・並び替え)
+  const romEditToggle = $('#rom-edit-toggle');
+  romEditToggle.addEventListener('click', ()=>{
+    romEditing = !romEditing;
+    romList.classList.toggle('editing', romEditing);
+    romEditToggle.textContent = romEditing ? '完了' : '編集';
+    romEditToggle.classList.toggle('on', romEditing);
+    updateRomEditButtonStates();
+  });
+  function updateRomEditButtonStates(){
+    const roms = $$('#rom-list .rom');
+    roms.forEach((btn, idx)=>{
+      const upBtn = btn.querySelector('.rom-up');
+      const downBtn = btn.querySelector('.rom-down');
+      if(upBtn) upBtn.disabled = (idx===0);
+      if(downBtn) downBtn.disabled = (idx===roms.length-1);
+    });
+  }
+  romList.addEventListener('click', e=>{
+    if(!romEditing) return;
+    const upBtn = e.target.closest('.rom-up');
+    const downBtn = e.target.closest('.rom-down');
+    const delBtn = e.target.closest('.rom-delete');
+    if(upBtn){
+      const btn = upBtn.closest('.rom');
+      const prev = btn.previousElementSibling;
+      if(prev) romList.insertBefore(btn, prev);
+      updateRomEditButtonStates();
+      syncRomChips();
+      saveRomListDebounced();
+      return;
+    }
+    if(downBtn){
+      const btn = downBtn.closest('.rom');
+      const next = btn.nextElementSibling;
+      if(next) romList.insertBefore(next, btn);
+      updateRomEditButtonStates();
+      syncRomChips();
+      saveRomListDebounced();
+      return;
+    }
+    if(delBtn){
+      const btn = delBtn.closest('.rom');
+      const romName = btn.dataset.rom;
+      const delRomId = btn.dataset.romId;
+      const isLastOne = $$('#rom-list .rom').length <= 1;
+      if(isLastOne){
+        toast('最後の1本は削除できません');
+        return;
+      }
+      if(btn.classList.contains('active')){
+        toast('表示中のソフトは削除できません。別のソフトに切り替えてから削除してください');
+        return;
+      }
+      if(confirm(`「${romName}」を削除しますか？\nこの操作は取り消せません。`)){
+        btn.remove();
+        updateRomEditButtonStates();
+        syncRomChips();
+        saveRomListDebounced();
+        if(delRomId) idbDelete('dexState:'+delRomId); // 削除したROMの図鑑状態も破棄
+        toast(romName+' を削除しました');
+      }
+    }
+  });
+
+  function genRomId(){
+    if(window.crypto && crypto.randomUUID) return 'rom-'+crypto.randomUUID();
+    return 'rom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8);
+  }
+
+  $('#add-rom-save').onclick=()=>{
+    const base=addBaseSelect.value;
+    const name=addNameInput.value.trim()||base;
+    const btn=document.createElement('button');
+    btn.className='rom';
+    btn.dataset.romId=genRomId();
+    btn.dataset.rom=name; btn.dataset.base=base;
+    btn.innerHTML=romInnerHtml(name, base);
+    romList.appendChild(btn);
+    syncRomChips();
+    saveRomListDebounced();
+    closeAddSheet();
+    toast(name+' を追加しました');
+  };
+
+  // Quick filter (multi-select).
+  const quickSet = new Set();
+  function applyLocal(){
+    $$('#regional-dex-container .dex-item, #dex-national .dex-item').forEach(item=>{
+      const okAll = quickSet.size===0;
+      const ok = okAll || [...quickSet].every(f=>
+        (f==='owned'&&item.dataset.status==='owned')
+        ||(f==='absent'&&item.dataset.status==='absent')
+        ||(f==='favorite'&&item.dataset.favorite==='1')
+        ||(f==='shiny'&&item.dataset.shiny==='1')
+        ||(f==='home'&&item.dataset.home==='1')
+      );
+      item.style.display=ok?'':'none';
+    });
+  }
+  $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+    if(btn.dataset.f==='all'){
+      quickSet.clear();
+      $$('.filter').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+    } else {
+      if(btn.dataset.f==='owned'||btn.dataset.f==='absent'){
+        const other = btn.dataset.f==='owned'?'absent':'owned';
+        quickSet.delete(other);
+        $(`.filter[data-f="${other}"]`).classList.remove('active');
+      }
+      btn.classList.toggle('active');
+      if(btn.classList.contains('active')) quickSet.add(btn.dataset.f); else quickSet.delete(btn.dataset.f);
+      $('.filter[data-f="all"]').classList.toggle('active', quickSet.size===0);
+    }
+    applyLocal();
+  }));
+
+  // Global search demo and result jump/highlight.
+  const gfSet = new Set();
+  const gsearch=$('#global-search');
+  function applyGlobal(){
+    const q=gsearch.value.trim().toLowerCase();
+    $$('.result').forEach(r=>{
+      const text=r.textContent.toLowerCase();
+      const icons=r.querySelector('.result-icons').textContent;
+      const okq=!q||text.includes(q);
+      const okf = gfSet.size===0 || [...gfSet].every(f=>
+        (f==='owned'&&icons.includes('✅'))
+        ||(f==='absent'&&icons.includes('➖'))
+        ||(f==='favorite'&&icons.includes('🩷'))
+        ||(f==='shiny'&&icons.includes('✨'))
+        ||(f==='home'&&icons.includes('🏠'))
+        ||(f==='bw'&&icons.includes('🏹'))
+        ||(f==='transporter'&&icons.includes('📤'))
+      );
+      r.style.display=okq&&okf?'':'none';
+    });
+  }
+  gsearch.addEventListener('input',applyGlobal);
+  $$('[data-g]').forEach(btn=>btn.addEventListener('click',()=>{
+    if(btn.dataset.g==='all'){
+      gfSet.clear();
+      $$('[data-g]').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+    } else {
+      if(btn.dataset.g==='owned'||btn.dataset.g==='absent'){
+        const other = btn.dataset.g==='owned'?'absent':'owned';
+        gfSet.delete(other);
+        $(`[data-g="${other}"]`).classList.remove('active');
+      }
+      btn.classList.toggle('active');
+      if(btn.classList.contains('active')) gfSet.add(btn.dataset.g); else gfSet.delete(btn.dataset.g);
+      $('[data-g="all"]').classList.toggle('active', gfSet.size===0);
+    }
+    applyGlobal();
+  }));
+  $$('#region-chips .chip').forEach(btn=>btn.addEventListener('click',()=>{
+    $$('#region-chips .chip').forEach(x=>x.classList.remove('on'));btn.classList.add('on');
+  }));
+  $('#rom-chips').addEventListener('click', e=>{
+    const btn=e.target.closest('.chip'); if(!btn) return;
+    $$('#rom-chips .chip').forEach(x=>x.classList.remove('on'));btn.classList.add('on');
+  });
+  function syncRomChips(){
+    const chipsWrap=$('#rom-chips');
+    chipsWrap.querySelectorAll('.chip:not([data-rom-filter="all"])').forEach(c=>c.remove());
+    $$('#rom-list .rom').forEach(romBtn=>{
+      const chip=document.createElement('button');
+      chip.className='chip';
+      chip.dataset.romFilter=romBtn.dataset.rom;
+      chip.textContent=romBtn.dataset.rom;
+      chipsWrap.appendChild(chip);
+    });
+  }
+  syncRomChips();
+  $('#ribbon-search-chips').addEventListener('click', e=>{
+    const btn=e.target.closest('.chip'); if(!btn) return;
+    btn.classList.toggle('on');
+  });
+
+  $$('.invert-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+    btn.classList.toggle('on');
+    const target=btn.dataset.invertFor;
+    if(target==='ribbon'){
+      $('#ribbon-search-chips').classList.toggle('inverted', btn.classList.contains('on'));
+    } else {
+      const field=btn.closest('.field');
+      if(field) field.classList.toggle('inverted', btn.classList.contains('on'));
+    }
+  }));
+
+  $$('.result').forEach(r=>r.addEventListener('click',()=>{
+    const no=r.dataset.hit, rom=r.dataset.romname;
+    title.textContent=rom; sideName.textContent=rom; sideInput.value=rom;
+    closeDrawers();
+    $$('.dex-item').forEach(x=>x.classList.remove('highlight'));
+    const target=$('.dex-item[data-no="'+String(no).padStart(3,'0')+'"]');
+    if(target){
+      const natDex=target.closest('.national-dex');
+      if(natDex) natDex.open=true;
+      target.style.display='';
+      target.classList.add('highlight');
+      $('#focus-label').textContent='🔍 '+target.dataset.name+' を表示中';
+      $('#focusbar').classList.add('show');
+      setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'center'}),50);
+    }
+  }));
+  $('#clear-focus').onclick=()=>{$$('.dex-item').forEach(x=>x.classList.remove('highlight'));$('#focusbar').classList.remove('show')};
+
+  // Backup / Export / Import.
+  $('#backup-btn').onclick=()=>{$('#backup-sheet').classList.add('show');closeDrawers()};
+  $$('.sheet-x').forEach(x=>x.onclick=()=>x.closest('.sheet').classList.remove('show'));
+  $('#backup-sheet').addEventListener('click',e=>{if(e.target.id==='backup-sheet')e.currentTarget.classList.remove('show')});
+
+  // IndexedDB上の全キーを列挙して、GoHOME cherish関連のデータを1つにまとめる
+  async function collectAllData(){
+    const db = await openDb();
+    const keys = await new Promise((resolve, reject)=>{
+      const tx = db.transaction(STORE_NAME, 'readonly');
+      const req = tx.objectStore(STORE_NAME).getAllKeys();
+      req.onsuccess = ()=> resolve(req.result);
+      req.onerror = (e)=> reject(e.target.error);
+    });
+    await saveDexState(); // 書き出し直前に、現在表示中ROMの最新状態を確実に保存しておく
+    const romList = (await idbGet('romList')) || [];
+    const dexStates = {};
+    const playthroughMemos = {};
+    for(const key of keys){
+      if(key.startsWith('dexState:')){
+        dexStates[key.slice('dexState:'.length)] = await idbGet(key);
+      } else if(key.startsWith('playthroughMemo:')){
+        playthroughMemos[key.slice('playthroughMemo:'.length)] = await idbGet(key);
+      }
+    }
+    return {
+      app: 'GoHOME cherish',
+      exportedAt: new Date().toISOString(),
+      version: 2,
+      romList,
+      dexStates,
+      playthroughMemos
+    };
+  }
+
+  function downloadFile(filename, content, mime){
+    const blob = new Blob([content], {type: mime});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+  }
+
+  function dateStamp(){
+    const d = new Date();
+    const pad = n=>String(n).padStart(2,'0');
+    return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}`;
+  }
+
+  // ----- JSON書き出し(完全バックアップ) -----
+  function buildJsonExport(data){
+    return JSON.stringify(data, null, 2);
+  }
+
+  // ----- TXT書き出し(簡易サマリー) -----
+  function buildTxtExport(data){
+    const lines = [];
+    lines.push('GoHOME cherish バックアップ (簡易サマリー)');
+    lines.push('書き出し日時: '+new Date(data.exportedAt).toLocaleString('ja-JP'));
+    lines.push('');
+    data.romList.forEach(rom=>{
+      const state = data.dexStates[rom.romId] || {};
+      const entries = Object.values(state);
+      const ownedCount = entries.filter(e=>e && e.status==='owned').length;
+      lines.push(`■ ${rom.name}（${rom.base}）`);
+      lines.push(`  所持数: ${ownedCount} / ${entries.length}種`);
+      const memo = data.playthroughMemos[rom.romId];
+      if(memo){
+        lines.push(`  リセット済み: ${memo.reset ? 'はい' : 'いいえ'}`);
+        if(memo.freeMemo) lines.push(`  進行メモ: ${memo.freeMemo}`);
+        if(memo.money) lines.push(`  所持金メモ: ${memo.money}円`);
+      }
+      lines.push('');
+    });
+    return lines.join('\n');
+  }
+
+  // ----- MD書き出し(整形レポート) -----
+  function buildMdExport(data){
+    const lines = [];
+    lines.push('# GoHOME cherish バックアップ');
+    lines.push('');
+    lines.push(`書き出し日時: ${new Date(data.exportedAt).toLocaleString('ja-JP')}`);
+    lines.push('');
+    data.romList.forEach(rom=>{
+      const state = data.dexStates[rom.romId] || {};
+      const entries = Object.values(state);
+      const ownedCount = entries.filter(e=>e && e.status==='owned').length;
+      const shinyCount = entries.filter(e=>e && e.shiny==='1').length;
+      const homeCount = entries.filter(e=>e && e.home==='1').length;
+      lines.push(`## ${rom.name}（${rom.base}）`);
+      lines.push('');
+      lines.push('| 項目 | 値 |');
+      lines.push('| --- | --- |');
+      lines.push(`| 所持数 | ${ownedCount} / ${entries.length}種 |`);
+      lines.push(`| 色違い登録数 | ${shinyCount}種 |`);
+      lines.push(`| HOME対象登録数 | ${homeCount}種 |`);
+      const memo = data.playthroughMemos[rom.romId];
+      if(memo){
+        lines.push(`| リセット済み | ${memo.reset ? 'はい' : 'いいえ'} |`);
+        if(memo.money) lines.push(`| 所持金メモ | ${memo.money}円 |`);
+      }
+      lines.push('');
+      if(memo && memo.freeMemo){
+        lines.push('**進行メモ**');
+        lines.push('');
+        lines.push(memo.freeMemo);
+        lines.push('');
+      }
+      if(memo && memo.targets){
+        lines.push('**狙っているものリスト**');
+        lines.push('');
+        lines.push(memo.targets);
+        lines.push('');
+      }
+    });
+    return lines.join('\n');
+  }
+
+  // ----- CSV書き出し(1行1匹の表形式) -----
+  function csvEscape(v){
+    const s = String(v==null ? '' : v);
+    if(/[",\n]/.test(s)) return '"'+s.replace(/"/g,'""')+'"';
+    return s;
+  }
+  function buildCsvExport(data){
+    const header = ['ソフト表示名','作品','図鑑No','状態','お気に入り','色違い','HOME対象','BWへ移送','ポケムーバー通過','ニックネーム','性格','ボール'];
+    const rows = [header];
+    data.romList.forEach(rom=>{
+      const state = data.dexStates[rom.romId] || {};
+      Object.keys(state).forEach(no=>{
+        const e = state[no];
+        if(!e) return;
+        const indiv = (e.individuals && e.individuals[0]) || {};
+        rows.push([
+          rom.name, rom.base, no,
+          e.status==='owned' ? '所持' : '未所持',
+          e.favorite==='1' ? '1' : '0',
+          e.shiny==='1' ? '1' : '0',
+          e.home==='1' ? '1' : '0',
+          e.transfers && e.transfers['🏹'] ? '1' : '0',
+          e.transfers && e.transfers['📤'] ? '1' : '0',
+          indiv['ニックネーム'] || '',
+          indiv['性格'] || '',
+          indiv['ボール'] || ''
+        ]);
+      });
+    });
+    // Excel等での文字化け対策としてUTF-8 BOMを付与
+    return '\uFEFF' + rows.map(r=>r.map(csvEscape).join(',')).join('\n');
+  }
+
+  $$('.backup-export-btn').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const format = btn.dataset.format;
+      toast('書き出し中…');
+      try{
+        const data = await collectAllData();
+        const stamp = dateStamp();
+        if(format==='json'){
+          downloadFile(`GoHOME_cherish_backup_${stamp}.json`, buildJsonExport(data), 'application/json');
+        } else if(format==='txt'){
+          downloadFile(`GoHOME_cherish_summary_${stamp}.txt`, buildTxtExport(data), 'text/plain');
+        } else if(format==='md'){
+          downloadFile(`GoHOME_cherish_report_${stamp}.md`, buildMdExport(data), 'text/markdown');
+        } else if(format==='csv'){
+          downloadFile(`GoHOME_cherish_list_${stamp}.csv`, buildCsvExport(data), 'text/csv');
+        }
+        toast(format.toUpperCase()+'を書き出しました');
+      }catch(err){
+        console.error('書き出し失敗', err);
+        toast('書き出しに失敗しました');
+      }
+    });
+  });
+
+  // ----- JSON読み込み(復元) -----
+  $('#backup-import-btn').addEventListener('click', ()=>{
+    $('#backup-import-file').click();
+  });
+  $('#backup-import-file').addEventListener('change', async (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    if(!confirm('現在保存されている全てのデータが、このファイルの内容で上書きされます。よろしいですか？')){
+      e.target.value='';
+      return;
+    }
+    try{
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if(!data || data.app!=='GoHOME cherish' || !data.romList){
+        toast('GoHOME cherishのバックアップファイルではないようです');
+        return;
+      }
+      await idbSet('romList', data.romList);
+      for(const romId in (data.dexStates||{})){
+        await idbSet('dexState:'+romId, data.dexStates[romId]);
+      }
+      for(const romId in (data.playthroughMemos||{})){
+        await idbSet('playthroughMemo:'+romId, data.playthroughMemos[romId]);
+      }
+      toast('読み込みました。ページを再読み込みします…');
+      setTimeout(()=>location.reload(), 1200);
+    }catch(err){
+      console.error('読み込み失敗', err);
+      toast('読み込みに失敗しました。ファイル形式をご確認ください');
+    } finally {
+      e.target.value='';
+    }
+  });
+
+  function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),1500)}
+
+  // 初期化: 保存済みのSOFTWARE LISTがあれば復元してから、表示中ROMの図鑑を読み込む
+  async function initApp(){
+    const restored = await restoreRomList();
+    if(restored) syncRomChips();
+    const activeRomBtn = $('#rom-list .rom.active') || $('#rom-list .rom');
+    if(activeRomBtn){
+      currentRomId = activeRomBtn.dataset.romId;
+      const name = activeRomBtn.dataset.rom, base = activeRomBtn.dataset.base;
+      title.textContent=name; sideName.textContent=name; $('#side-current-base').textContent=base; sideInput.value=name;
+      const gameId = GAME_ID_MAP[base] || 'diamond';
+      await loadGameData(gameId);
+    } else {
+      await loadGameData('diamond');
+    }
+  }
+  initApp();
+
+  // ページ離脱・非表示時に即時保存(デバウンスを待たず確実に保存する)
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState==='hidden'){ saveDexState(); saveRomList(); }
+  });
+  window.addEventListener('pagehide', ()=>{ saveDexState(); saveRomList(); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>周回メモ - GoHOME cherish</title>
+<style>
+:root{
+  --bg:#f5f4f1;
+  --surface:#fbfaf7;
+  --surface2:#efeeea;
+  --text:#323437;
+  --muted:#777b7f;
+  --faint:#a5a8aa;
+  --line:#deddd8;
+  --line2:#e8e7e2;
+  --accent:#627f91;
+  --accent-soft:#e8eff3;
+  --rose:#a96f7c;
+  --rose-soft:#f3e8eb;
+  --danger:#a66b6b;
+  --font:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Yu Gothic","Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px}
+button,input,select,textarea{font:inherit;color:inherit}
+button,label{touch-action:manipulation}
+
+.topbar{
+  position:sticky;top:0;z-index:30;height:52px;
+  display:grid;grid-template-columns:44px 1fr 44px;align-items:center;
+  padding-top:env(safe-area-inset-top);
+  background:rgba(245,244,241,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.top-action{
+  width:36px;height:36px;margin:auto;border:0;background:transparent;
+  display:grid;place-items:center;font-size:18px;border-radius:8px;text-decoration:none;color:inherit
+}
+.top-action:active{background:var(--surface2)}
+.brand{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.08em;font-weight:650}
+.main{max-width:520px;margin:0 auto;padding:16px 16px 60px}
+
+.rom-select-row{margin-bottom:16px}
+.rom-select-row label{display:block;font-size:10px;color:var(--faint);margin-bottom:5px}
+.rom-select-row select{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 11px;font-size:13px;
+  background:var(--surface);font-weight:650
+}
+
+.pt-block{border-bottom:1px solid var(--line2);padding-bottom:16px;margin-bottom:16px}
+.pt-block:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.pt-block-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+
+.pt-reset-row{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.pt-reset-row .label{font-size:12px;font-weight:620}
+.pt-reset-row .sub{font-size:9.5px;color:var(--faint);margin-top:2px}
+.pt-toggle{
+  width:44px;height:26px;border-radius:13px;border:1px solid var(--line);background:var(--surface2);
+  position:relative;flex:none
+}
+.pt-toggle .knob{
+  position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;
+  background:var(--faint);transition:left .15s
+}
+.pt-toggle.on{background:var(--accent-soft);border-color:#c9d9e1}
+.pt-toggle.on .knob{left:20px;background:var(--accent)}
+
+.pt-memo-textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:12px;
+  background:var(--surface);resize:vertical;min-height:64px;font-family:inherit
+}
+
+.pt-shiny-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.pt-shiny-row input[type="text"]{
+  flex:1;border:1px solid var(--line);border-radius:7px;padding:8px 9px;font-size:12px;background:var(--surface)
+}
+.pt-count-controls{display:flex;align-items:center;gap:5px;flex:none}
+.pt-count-btn{
+  width:28px;height:28px;border:1px solid var(--line);background:var(--surface);border-radius:6px;
+  font-size:13px;display:grid;place-items:center;color:var(--muted)
+}
+.pt-count-num{font-family:var(--mono);font-size:12px;min-width:30px;text-align:center}
+.pt-del{border:0;background:transparent;color:var(--danger);font-size:15px;flex:none;width:26px}
+.pt-add-row-btn{
+  width:100%;border:1px dashed var(--line);background:transparent;border-radius:7px;
+  padding:9px;font-size:11px;color:var(--accent);margin-top:2px
+}
+
+.pt-target-list textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:12px;
+  background:var(--surface);resize:vertical;min-height:76px;font-family:inherit
+}
+.pt-target-hint{font-size:9.5px;color:var(--faint);margin-top:5px;line-height:1.6}
+
+.pt-money-row{display:flex;align-items:center;gap:8px}
+.pt-money-row input{
+  flex:1;border:1px solid var(--line);border-radius:7px;padding:9px 10px;font-size:13px;
+  background:var(--surface);font-family:var(--mono)
+}
+.pt-money-row .unit{font-size:11px;color:var(--faint);flex:none}
+
+.pt-item-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.pt-item-row select{
+  flex:1.3;min-width:0;border:1px solid var(--line);border-radius:7px;padding:8px 6px;font-size:11px;background:var(--surface)
+}
+.pt-item-row input[type="text"]{
+  flex:1.3;min-width:0;border:1px solid var(--line);border-radius:7px;padding:8px 9px;font-size:11px;background:var(--surface)
+}
+.pt-item-row input[type="number"]{
+  width:54px;flex:none;border:1px solid var(--line);border-radius:7px;padding:8px 4px;font-size:11px;
+  background:var(--surface);font-family:var(--mono);text-align:center
+}
+
+.pt-cross-total{
+  background:var(--accent-soft);border-radius:8px;padding:11px 12px;font-size:11px;line-height:2
+}
+.pt-cross-total .item-name{font-weight:650}
+.pt-cross-total .total-num{font-family:var(--mono);color:var(--accent);font-weight:700}
+.pt-cross-total .breakdown{color:var(--faint);font-size:9.5px;display:block;margin-top:1px}
+.pt-cross-hint{font-size:9.5px;color:var(--faint);margin-top:8px;line-height:1.6}
+.pt-cross-total + .pt-cross-total{margin-top:8px}
+.pt-cross-empty{font-size:10.5px;color:var(--faint);padding:8px 2px}
+
+.pt-note{
+  font-size:9.5px;color:var(--faint);background:var(--surface2);border-radius:8px;padding:9px 11px;
+  margin-bottom:16px;line-height:1.7
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="top-action" aria-label="図鑑にもどる">‹</a>
+  <div class="brand">周回メモ</div>
+  <span></span>
+</header>
+
+<main class="main">
+
+  <div class="pt-note">💡 このページは周回中のROM専用のメモです（殿堂入り後の引っ越し専用データには使いません）。入力内容は自動で保存されます。※クロスROM集計はまだプレビュー表示です。</div>
+
+  <div class="rom-select-row">
+    <label>対象のROM</label>
+    <select id="pt-rom-select">
+      <option>ダイヤモンド①</option>
+    </select>
+  </div>
+
+  <!-- 1. リセットフラグ -->
+  <div class="pt-block">
+    <div class="pt-block-title">🔰 リセットしたか</div>
+    <div class="pt-reset-row">
+      <div>
+        <div class="label">このROMはリセット済み</div>
+        <div class="sub">殿堂入り前提の状態からやり直したかどうか</div>
+      </div>
+      <button class="pt-toggle" id="pt-reset-toggle" type="button"><span class="knob"></span></button>
+    </div>
+  </div>
+
+  <!-- 2. 任意メモ欄 -->
+  <div class="pt-block">
+    <div class="pt-block-title">📝 進行メモ（乱数調整の有無など、自由に）</div>
+    <textarea class="pt-memo-textarea" id="pt-free-memo" placeholder="例：メロボ乱数調整なし。IDくじ狙いで周回中。"></textarea>
+  </div>
+
+  <!-- 3. 色違い厳選カウンター -->
+  <div class="pt-block">
+    <div class="pt-block-title">✨ 色違い厳選カウンター</div>
+    <div id="pt-shiny-list">
+      <div class="pt-shiny-row">
+        <input type="text" placeholder="対象ポケモン名（例：ヒコザル）">
+        <div class="pt-count-controls">
+          <button class="pt-count-btn" type="button">−</button>
+          <span class="pt-count-num">0</span>
+          <button class="pt-count-btn" type="button">＋</button>
+        </div>
+        <button class="pt-del" type="button">×</button>
+      </div>
+    </div>
+    <button class="pt-add-row-btn" id="pt-shiny-add" type="button">＋ 厳選対象を追加</button>
+  </div>
+
+  <!-- 4. 狙っているものリスト -->
+  <div class="pt-block">
+    <div class="pt-block-title">🎯 狙っているものリスト</div>
+    <div class="pt-target-list">
+      <textarea placeholder="例：&#10;・ヒコザルの色違い&#10;・がんばリボン厳選用の個体&#10;・プレシャスボール在庫確保"></textarea>
+    </div>
+    <div class="pt-target-hint">ポケモン・色違い・リボン・ボールなど、自由に箇条書きしてください。</div>
+  </div>
+
+  <!-- 5. お金メモ -->
+  <div class="pt-block">
+    <div class="pt-block-title">💰 所持金メモ</div>
+    <div class="pt-money-row">
+      <input type="number" id="pt-money" placeholder="0" inputmode="numeric">
+      <span class="unit">円</span>
+    </div>
+  </div>
+
+  <!-- 6. 持ち物メモ -->
+  <div class="pt-block">
+    <div class="pt-block-title">🎒 持ち物メモ</div>
+    <div id="pt-item-list">
+      <div class="pt-item-row">
+        <select>
+          <option value="ball">ボール</option>
+          <option value="evolution">進化アイテム</option>
+          <option value="ev-drink">努力値薬</option>
+          <option value="reset">初期化アイテム</option>
+          <option value="free">自由記入</option>
+        </select>
+        <input type="text" placeholder="アイテム名">
+        <input type="number" placeholder="個数" inputmode="numeric">
+        <button class="pt-del" type="button">×</button>
+      </div>
+    </div>
+    <button class="pt-add-row-btn" id="pt-item-add" type="button">＋ アイテム枠を追加</button>
+  </div>
+
+  <!-- 7. クロスROM集計 -->
+  <div class="pt-block">
+    <div class="pt-block-title">📊 同シリーズ内のアイテム合算</div>
+    <div id="pt-cross-total-list"></div>
+    <div class="pt-cross-hint">同じ作品グループ（例：ダイヤモンド・パール・プラチナ・ハートゴールド・ソウルシルバー）内の複数ROMで、持ち物メモに登録した同名アイテムを自動で合算します。上限は設けていません。</div>
+  </div>
+
+</main>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+
+  // ===== IndexedDB (図鑑側 index.html と同じDBを共有) =====
+  const DB_NAME = 'gohome_cherish_db';
+  const DB_VERSION = 1;
+  const STORE_NAME = 'kv';
+  let dbPromise = null;
+  function openDb(){
+    if(dbPromise) return dbPromise;
+    dbPromise = new Promise((resolve, reject)=>{
+      if(!window.indexedDB){ reject(new Error('IndexedDB非対応のブラウザです')); return; }
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onupgradeneeded = (e)=>{
+        const db = e.target.result;
+        if(!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
+      };
+      req.onsuccess = (e)=> resolve(e.target.result);
+      req.onerror = (e)=> reject(e.target.error);
+    });
+    return dbPromise;
+  }
+  async function idbSet(key, value){
+    try{
+      const db = await openDb();
+      return new Promise((resolve, reject)=>{
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put(value, key);
+        tx.oncomplete = ()=> resolve(true);
+        tx.onerror = (e)=> reject(e.target.error);
+      });
+    }catch(err){ console.error('idbSet失敗', key, err); return false; }
+  }
+  async function idbGet(key){
+    try{
+      const db = await openDb();
+      return new Promise((resolve, reject)=>{
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const req = tx.objectStore(STORE_NAME).get(key);
+        req.onsuccess = ()=> resolve(req.result);
+        req.onerror = (e)=> reject(e.target.error);
+      });
+    }catch(err){ console.error('idbGet失敗', key, err); return undefined; }
+  }
+  function debounce(fn, wait){
+    let timer=null;
+    return (...args)=>{ clearTimeout(timer); timer=setTimeout(()=>fn(...args), wait); };
+  }
+
+  // ===== ROM選択プルダウンを、図鑑側で保存されたSOFTWARE LISTから復元 =====
+  // ===== 作品グループ定義(通信交換が可能な組み合わせに基づく) =====
+  const GAME_GROUPS = {
+    'ダイヤモンド':'gen4', 'パール':'gen4', 'プラチナ':'gen4', 'ハートゴールド':'gen4', 'ソウルシルバー':'gen4',
+    'ブラック':'bw', 'ホワイト':'bw',
+    'ブラック2':'bw2', 'ホワイト2':'bw2',
+    'X':'xy-oras', 'Y':'xy-oras', 'オメガルビー':'xy-oras', 'アルファサファイア':'xy-oras',
+    'サン':'sm-usum', 'ムーン':'sm-usum', 'ウルトラサン':'sm-usum', 'ウルトラムーン':'sm-usum'
+  };
+
+  let currentRomId = null;
+  const romSelect = $('#pt-rom-select');
+
+  async function loadRomOptions(){
+    const roms = await idbGet('romList');
+    romSelect.innerHTML = '';
+    if(!roms || !roms.length){
+      const opt = document.createElement('option');
+      opt.textContent = 'ソフトが登録されていません';
+      opt.disabled = true;
+      romSelect.appendChild(opt);
+      return null;
+    }
+    roms.forEach(r=>{
+      const opt = document.createElement('option');
+      opt.value = r.romId;
+      opt.textContent = r.name;
+      romSelect.appendChild(opt);
+    });
+    const active = roms.find(r=>r.active) || roms[0];
+    romSelect.value = active.romId;
+    return active.romId;
+  }
+
+  // ===== 周回メモ本体の状態の取得・反映 =====
+  function getMemoState(){
+    const shinyList = $$('#pt-shiny-list .pt-shiny-row').map(row=>({
+      name: row.querySelector('input[type="text"]').value,
+      count: parseInt(row.querySelector('.pt-count-num').textContent, 10) || 0
+    })).filter(s=>s.name || s.count);
+    const itemList = $$('#pt-item-list .pt-item-row').map(row=>({
+      category: row.querySelector('select').value,
+      name: row.querySelector('input[type="text"]').value,
+      qty: row.querySelector('input[type="number"]').value
+    })).filter(it=>it.name || it.qty);
+    return {
+      reset: $('#pt-reset-toggle').classList.contains('on'),
+      freeMemo: $('#pt-free-memo').value,
+      shinyCounters: shinyList,
+      targets: $('.pt-target-list textarea').value,
+      money: $('#pt-money').value,
+      items: itemList
+    };
+  }
+
+  function applyMemoState(state){
+    if(!state) return;
+    $('#pt-reset-toggle').classList.toggle('on', !!state.reset);
+    $('#pt-free-memo').value = state.freeMemo || '';
+    $('.pt-target-list textarea').value = state.targets || '';
+    $('#pt-money').value = state.money || '';
+
+    // 色違いカウンター: 保存件数ぶん行を作ってから値を入れる
+    const shinyListEl = $('#pt-shiny-list');
+    shinyListEl.innerHTML = '';
+    const shinyData = (state.shinyCounters && state.shinyCounters.length) ? state.shinyCounters : [{name:'',count:0}];
+    shinyData.forEach(s=>{
+      const row = createShinyRow();
+      row.querySelector('input[type="text"]').value = s.name || '';
+      row.querySelector('.pt-count-num').textContent = s.count || 0;
+      shinyListEl.appendChild(row);
+    });
+
+    // 持ち物メモ: 同様に復元
+    const itemListEl = $('#pt-item-list');
+    itemListEl.innerHTML = '';
+    const itemData = (state.items && state.items.length) ? state.items : [{category:'ball',name:'',qty:''}];
+    itemData.forEach(it=>{
+      const row = createItemRow();
+      row.querySelector('select').value = it.category || 'ball';
+      row.querySelector('input[type="text"]').value = it.name || '';
+      row.querySelector('input[type="number"]').value = it.qty || '';
+      itemListEl.appendChild(row);
+    });
+  }
+
+  async function saveMemoState(){
+    if(!currentRomId) return;
+    await idbSet('playthroughMemo:'+currentRomId, getMemoState());
+  }
+  const saveMemoStateDebounced = debounce(saveMemoState, 500);
+  const saveItemsAndRecalc = debounce(async ()=>{
+    await saveMemoState();
+    await renderCrossTotal();
+  }, 500);
+
+  async function loadMemoState(){
+    if(!currentRomId){ applyMemoState(null); return; }
+    const state = await idbGet('playthroughMemo:'+currentRomId);
+    applyMemoState(state);
+  }
+
+  // ===== 1. リセットトグル =====
+  $('#pt-reset-toggle').addEventListener('click', function(){
+    this.classList.toggle('on');
+    saveMemoStateDebounced();
+  });
+
+  // ===== 2. 自由メモ =====
+  $('#pt-free-memo').addEventListener('input', saveMemoStateDebounced);
+
+  // ===== 3. 色違い厳選カウンター =====
+  function createShinyRow(){
+    const row = document.createElement('div');
+    row.className = 'pt-shiny-row';
+    row.innerHTML = `
+      <input type="text" placeholder="対象ポケモン名（例：ヒコザル）">
+      <div class="pt-count-controls">
+        <button class="pt-count-btn" type="button">−</button>
+        <span class="pt-count-num">0</span>
+        <button class="pt-count-btn" type="button">＋</button>
+      </div>
+      <button class="pt-del" type="button">×</button>`;
+    bindShinyRow(row);
+    return row;
+  }
+  function bindShinyRow(row){
+    const minus = row.querySelector('.pt-count-btn:first-of-type');
+    const plus = row.querySelector('.pt-count-btn:last-of-type');
+    const numEl = row.querySelector('.pt-count-num');
+    const nameInput = row.querySelector('input[type="text"]');
+    const delBtn = row.querySelector('.pt-del');
+    minus.addEventListener('click', ()=>{
+      numEl.textContent = Math.max(0, parseInt(numEl.textContent,10)-1);
+      saveMemoStateDebounced();
+    });
+    plus.addEventListener('click', ()=>{
+      numEl.textContent = parseInt(numEl.textContent,10)+1;
+      saveMemoStateDebounced();
+    });
+    nameInput.addEventListener('input', saveMemoStateDebounced);
+    delBtn.addEventListener('click', ()=>{
+      if($$('#pt-shiny-list .pt-shiny-row').length<=1){
+        nameInput.value=''; numEl.textContent='0';
+      } else {
+        row.remove();
+      }
+      saveMemoStateDebounced();
+    });
+  }
+  $$('#pt-shiny-list .pt-shiny-row').forEach(bindShinyRow);
+  $('#pt-shiny-add').addEventListener('click', ()=>{
+    $('#pt-shiny-list').appendChild(createShinyRow());
+    saveMemoStateDebounced();
+  });
+
+  // ===== 4. 狙っているものリスト =====
+  $('.pt-target-list textarea').addEventListener('input', saveMemoStateDebounced);
+
+  // ===== 5. お金メモ =====
+  $('#pt-money').addEventListener('input', saveMemoStateDebounced);
+
+  // ===== 6. 持ち物メモ =====
+  function createItemRow(){
+    const row = document.createElement('div');
+    row.className = 'pt-item-row';
+    row.innerHTML = `
+      <select>
+        <option value="ball">ボール</option>
+        <option value="evolution">進化アイテム</option>
+        <option value="ev-drink">努力値薬</option>
+        <option value="reset">初期化アイテム</option>
+        <option value="free">自由記入</option>
+      </select>
+      <input type="text" placeholder="アイテム名">
+      <input type="number" placeholder="個数" inputmode="numeric">
+      <button class="pt-del" type="button">×</button>`;
+    bindItemRow(row);
+    return row;
+  }
+  function bindItemRow(row){
+    row.querySelector('select').addEventListener('change', saveItemsAndRecalc);
+    row.querySelector('input[type="text"]').addEventListener('input', saveItemsAndRecalc);
+    row.querySelector('input[type="number"]').addEventListener('input', saveItemsAndRecalc);
+    const delBtn = row.querySelector('.pt-del');
+    delBtn.addEventListener('click', ()=>{
+      if($$('#pt-item-list .pt-item-row').length<=1){
+        row.querySelectorAll('input').forEach(i=>i.value='');
+      } else {
+        row.remove();
+      }
+      saveItemsAndRecalc();
+    });
+  }
+  $$('#pt-item-list .pt-item-row').forEach(bindItemRow);
+  $('#pt-item-add').addEventListener('click', ()=>{
+    $('#pt-item-list').appendChild(createItemRow());
+    saveItemsAndRecalc();
+  });
+
+  // ===== 7. クロスROM集計 =====
+
+  // ===== ROM切り替え =====
+  romSelect.addEventListener('change', async ()=>{
+    await saveMemoState(); // 切り替え前の状態を保存(切替前IDのまま呼ぶ必要があるため先にawaitで確定させる)
+    currentRomId = romSelect.value;
+    await loadMemoState();
+    await renderCrossTotal();
+  });
+
+  // ===== 7. クロスROM集計 =====
+  async function renderCrossTotal(){
+    const container = $('#pt-cross-total-list');
+    const roms = await idbGet('romList');
+    if(!roms || !roms.length || !currentRomId){
+      container.innerHTML = '<div class="pt-cross-empty">対象ROMがありません。</div>';
+      return;
+    }
+    const currentRom = roms.find(r=>r.romId===currentRomId);
+    if(!currentRom){ container.innerHTML=''; return; }
+    const myGroup = GAME_GROUPS[currentRom.base];
+    if(!myGroup){
+      container.innerHTML = '<div class="pt-cross-empty">このソフトは他ソフトと合算できるグループがありません。</div>';
+      return;
+    }
+    const sameGroupRoms = roms.filter(r=>GAME_GROUPS[r.base]===myGroup);
+    if(sameGroupRoms.length<=1){
+      container.innerHTML = '<div class="pt-cross-empty">同じ作品グループの他のROMがまだ登録されていません。</div>';
+      return;
+    }
+
+    // 各ROMの持ち物メモを取得し、アイテム名ごとに合算する
+    const totals = {}; // { アイテム名: { total, breakdown:[{romName, qty}] } }
+    for(const r of sameGroupRoms){
+      const memo = await idbGet('playthroughMemo:'+r.romId);
+      if(!memo || !memo.items) continue;
+      memo.items.forEach(it=>{
+        const name = (it.name||'').trim();
+        const qty = parseInt(it.qty, 10);
+        if(!name || !qty || qty<=0) return;
+        if(!totals[name]) totals[name] = { total:0, breakdown:[] };
+        totals[name].total += qty;
+        totals[name].breakdown.push(`${r.name} ${qty}個`);
+      });
+    }
+
+    const names = Object.keys(totals);
+    if(!names.length){
+      container.innerHTML = '<div class="pt-cross-empty">まだ持ち物メモに個数が入力されたアイテムがありません。</div>';
+      return;
+    }
+    container.innerHTML = names.map(name=>{
+      const t = totals[name];
+      return `<div class="pt-cross-total">
+        <span class="item-name">${name}</span> 合計 <span class="total-num">${t.total}</span> 個
+        <span class="breakdown">内訳：${t.breakdown.join(' ／ ')}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // ===== 初期化 =====
+  async function initApp(){
+    const romId = await loadRomOptions();
+    currentRomId = romId;
+    await loadMemoState();
+    await renderCrossTotal();
+  }
+  initApp();
+
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState==='hidden') saveMemoState();
+  });
+  window.addEventListener('pagehide', ()=>{ saveMemoState(); });
+})();
+</script>
+
+</body>
+</html>
